@@ -1,10 +1,10 @@
 <template>
-    <hero-bar>Payment Gateway Report</hero-bar>
+    <hero-bar>Payment Gateway Reports</hero-bar>
 
     <main-section>
         <card-component
             class="mb-6"
-            title="Clients"
+            title="Commission applicable per booking"
             :icon="mdiAccountMultiple"
             has-table
         >
@@ -12,7 +12,7 @@
         </card-component>
 
         <card-component
-            title="Performance"
+            title="Commission applicable per day"
             :icon="mdiFinance"
             :header-icon="mdiReload"
             class="mb-6"

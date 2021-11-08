@@ -1,10 +1,10 @@
 <template>
-    <hero-bar>Provider Report</hero-bar>
+    <hero-bar>Providers' Reports</hero-bar>
 
     <main-section>
         <card-component
             class="mb-6"
-            title="Clients"
+            title="Providers Signed Up By City"
             :icon="mdiAccountMultiple"
             has-table
         >
@@ -12,7 +12,7 @@
         </card-component>
 
         <card-component
-            title="Performance"
+            title="Providers Signed Up By Day"
             :icon="mdiFinance"
             :header-icon="mdiReload"
             class="mb-6"

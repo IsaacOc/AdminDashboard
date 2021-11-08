@@ -1,10 +1,10 @@
 <template>
-    <hero-bar>App Earning Report</hero-bar>
+    <hero-bar>App Earnings</hero-bar>
 
     <main-section>
         <card-component
             class="mb-6"
-            title="Clients"
+            title="App Earnings Report"
             :icon="mdiAccountMultiple"
             has-table
         >
@@ -12,7 +12,7 @@
         </card-component>
 
         <card-component
-            title="Performance"
+            title="Total Amount Of App Earnings"
             :icon="mdiFinance"
             :header-icon="mdiReload"
             class="mb-6"

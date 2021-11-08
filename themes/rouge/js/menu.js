@@ -67,7 +67,7 @@ export default [
             ],
         },
         {
-            label: "Business",
+            label: "Businesses",
             icon: mdiSquareEditOutline,
             menu: [
                 {
@@ -212,15 +212,15 @@ export default [
             ],
         },
         {
-            label: "Category",
+            label: "Categories",
             icon: mdiBallot,
             menu: [
                 {
-                    label: "Category",
+                    label: "Categories",
                     to: { name: "category" },
                 },
                 {
-                    label: "Sub Category",
+                    label: "Sub Categories",
                     to: { name: "sub-category" },
                 },
             ],

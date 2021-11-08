@@ -19,16 +19,29 @@
     </span>
   </div>
 
+<div style="overflow-x: scroll">
   <table>
     <thead>
     <tr>
       <th v-if="checkable"></th>
       <th></th>
-      <th>Name</th>
-      <th>Company</th>
+      <th>Booking ID</th>
+      <th>Date</th>
       <th>City</th>
-      <th>Progress</th>
-      <th>Created</th>
+      <th>Provider</th>
+      <th>Customer</th>
+      <th>Call Type</th>
+      <th>Total Fee</th>
+      <th>Discount</th>
+      <th>Adjustments</th>
+      <th>Billed</th>
+      <th>App Earnings</th>
+      <th>Provider Earnings</th>
+      <th>PG Gateway</th>
+      <th>Payment Method</th>
+      <th>PG Name</th>
+      <th>Booking Status</th>
+      <th>Provide Invoicer</th>
       <th></th>
     </tr>
     </thead>
@@ -40,6 +53,18 @@
       </td>
       <td data-label="Name">{{ client.name }}</td>
       <td data-label="Company">{{ client.company }}</td>
+      <td data-label="City">{{ client.city }}</td>
+      <td data-label="City">{{ client.city }}</td>
+      <td data-label="City">{{ client.city }}</td>
+      <td data-label="City">{{ client.city }}</td>
+      <td data-label="City">{{ client.city }}</td>
+      <td data-label="City">{{ client.city }}</td>
+      <td data-label="City">{{ client.city }}</td>
+      <td data-label="City">{{ client.city }}</td>
+      <td data-label="City">{{ client.city }}</td>
+      <td data-label="City">{{ client.city }}</td>
+      <td data-label="City">{{ client.city }}</td>
+      <td data-label="City">{{ client.city }}</td>
       <td data-label="City">{{ client.city }}</td>
       <td data-label="Progress" class="progress-cell">
         <progress max="100" :value="client.progress">{{ client.progress }}</progress>
@@ -56,6 +81,7 @@
     </tr>
     </tbody>
   </table>
+  </div>
   <div class="table-pagination">
     <level>
       <jb-buttons>

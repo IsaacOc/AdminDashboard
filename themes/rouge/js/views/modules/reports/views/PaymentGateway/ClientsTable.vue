@@ -24,11 +24,12 @@
     <tr>
       <th v-if="checkable"></th>
       <th></th>
-      <th>Name</th>
-      <th>Company</th>
-      <th>City</th>
-      <th>Progress</th>
-      <th>Created</th>
+      <th>Booking ID</th>
+      <th>Create Booking Date: Minute</th>
+      <th>City Name</th>
+      <th>Category Name</th>
+      <th>Total Pg Commission</th>
+      <th>Total</th>
       <th></th>
     </tr>
     </thead>
@@ -47,6 +48,7 @@
       <td data-label="Created">
         <small class="text-gray-500 dark:text-gray-400" :title="client.created">{{ client.created }}</small>
       </td>
+      <td data-label="City">{{ client.city }}</td>
       <td class="actions-cell">
         <jb-buttons type="justify-start lg:justify-end" no-wrap>
           <jb-button class="mr-3" color="success" :icon="mdiEye" small @click="isModalActive = true" />

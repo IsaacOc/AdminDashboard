@@ -3,16 +3,7 @@
 
     <main-section>
         <card-component
-            class="mb-6"
-            title="Clients"
-            :icon="mdiAccountMultiple"
-            has-table
-        >
-            <clients-table checkable />
-        </card-component>
-
-        <card-component
-            title="Performance"
+            title="Requests Generated"
             :icon="mdiFinance"
             :header-icon="mdiReload"
             class="mb-6"
@@ -29,7 +20,6 @@
 import { ref, onMounted } from "vue";
 import * as chartConfig from "./chart.config";
 import MainSection from "./MainSection";
-import ClientsTable from "./ClientsTable";
 import HeroBar from "./HeroBar";
 import LineChart from "./LineChart";
 import CardComponent from "./CardComponent";
@@ -38,7 +28,6 @@ export default {
     name: "Booking",
     components: {
         MainSection,
-        ClientsTable,
         HeroBar,
         LineChart,
         CardComponent,

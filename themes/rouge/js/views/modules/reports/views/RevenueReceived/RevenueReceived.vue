@@ -1,10 +1,10 @@
 <template>
-    <hero-bar>Revenue Received Report</hero-bar>
+    <hero-bar>Revenue Received Reports</hero-bar>
 
     <main-section>
         <card-component
             class="mb-6"
-            title="Clients"
+            title="Revenue received through customer"
             :icon="mdiAccountMultiple"
             has-table
         >
@@ -12,7 +12,7 @@
         </card-component>
 
         <card-component
-            title="Performance"
+            title="Total revenue"
             :icon="mdiFinance"
             :header-icon="mdiReload"
             class="mb-6"

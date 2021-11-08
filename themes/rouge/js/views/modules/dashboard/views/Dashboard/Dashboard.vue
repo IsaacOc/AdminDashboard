@@ -30,8 +30,6 @@
             />
         </div>
 
-        <title-sub-bar :icon="mdiChartPie" title="Trends overview" />
-
         <card-component
             title="Trending"
             :icon="mdiFinance"
@@ -44,10 +42,7 @@
             </div>
         </card-component>
 
-        <card-component
-            title="Bookings"
-            has-table
-        >
+        <card-component title="Bookings" has-table>
             <clients-table />
         </card-component>
     </main-section>

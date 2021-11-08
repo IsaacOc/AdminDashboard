@@ -7,12 +7,6 @@
     "/js/responsive.js": "/js/responsive.js",
     "/js/login.js": "/js/login.js",
     "/js/error.js": "/js/error.js",
-    "/css/main.css": "/css/main.css",
-    "/js/reports.js": "/js/reports.js",
-    "/js/A.js": "/js/A.js",
-    "/js/AppEarning.js": "/js/AppEarning.js",
-    "/js/dash.js": "/js/dash.js",
-    "/js/dashboard.js": "/js/dashboard.js",
-    "/js/group-modules.js": "/js/group-modules.js",
-    "/js/modules.js": "/js/modules.js"
+    "/js/modules.js": "/js/modules.js",
+    "/css/main.css": "/css/main.css"
 }

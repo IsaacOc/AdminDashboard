@@ -23,29 +23,19 @@
     <thead>
     <tr>
       <th v-if="checkable"></th>
-      <th></th>
-      <th>Name</th>
-      <th>Company</th>
-      <th>City</th>
-      <th>Progress</th>
-      <th>Created</th>
+      <th>SL No.</th>
+      <th>Business Group Name</th>
+      <th>Business Image</th>
       <th></th>
     </tr>
     </thead>
     <tbody>
     <tr v-for="client in itemsPaginated" :key="client.id">
       <checkbox-cell v-if="checkable" @checked="checked($event, client)"/>
-      <td class="image-cell">
-        <user-avatar :username="client.name" class="image" />
-      </td>
       <td data-label="Name">{{ client.name }}</td>
       <td data-label="Company">{{ client.company }}</td>
-      <td data-label="City">{{ client.city }}</td>
-      <td data-label="Progress" class="progress-cell">
-        <progress max="100" :value="client.progress">{{ client.progress }}</progress>
-      </td>
-      <td data-label="Created">
-        <small class="text-gray-500 dark:text-gray-400" :title="client.created">{{ client.created }}</small>
+      <td class="image-cell">
+        <user-avatar :username="client.name" class="image" />
       </td>
       <td class="actions-cell">
         <jb-buttons type="justify-start lg:justify-end" no-wrap>

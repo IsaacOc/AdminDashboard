@@ -1,10 +1,10 @@
 <template>
-    <hero-bar>Provider Earning Report</hero-bar>
+    <hero-bar>Provider Earning Reports</hero-bar>
 
     <main-section>
         <card-component
             class="mb-6"
-            title="Clients"
+            title="Provider earnings per booking"
             :icon="mdiAccountMultiple"
             has-table
         >
@@ -12,7 +12,7 @@
         </card-component>
 
         <card-component
-            title="Performance"
+            title="Provider earnings per day"
             :icon="mdiFinance"
             :header-icon="mdiReload"
             class="mb-6"

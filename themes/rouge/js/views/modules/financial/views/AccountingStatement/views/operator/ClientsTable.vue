@@ -19,16 +19,22 @@
     </span>
   </div>
 
+<div style="overflow-x: scroll">
   <table>
     <thead>
     <tr>
       <th v-if="checkable"></th>
       <th></th>
+      <th>SL No.</th>
       <th>Name</th>
-      <th>Company</th>
+      <th>Email</th>
+      <th>Phone</th>
       <th>City</th>
-      <th>Progress</th>
-      <th>Created</th>
+      <th>Wallet Balance</th>
+      <th>Soft Limit</th>
+      <th>Hard Limit</th>
+      <th>Operation</th>
+      <th>Initiated</th>
       <th></th>
     </tr>
     </thead>
@@ -40,6 +46,11 @@
       </td>
       <td data-label="Name">{{ client.name }}</td>
       <td data-label="Company">{{ client.company }}</td>
+      <td data-label="City">{{ client.city }}</td>
+      <td data-label="City">{{ client.city }}</td>
+      <td data-label="City">{{ client.city }}</td>
+      <td data-label="City">{{ client.city }}</td>
+      <td data-label="City">{{ client.city }}</td>
       <td data-label="City">{{ client.city }}</td>
       <td data-label="Progress" class="progress-cell">
         <progress max="100" :value="client.progress">{{ client.progress }}</progress>
@@ -56,6 +67,7 @@
     </tr>
     </tbody>
   </table>
+  </div>
   <div class="table-pagination">
     <level>
       <jb-buttons>

@@ -4,6 +4,7 @@
     class="bg-white border border-gray-100 dark:bg-gray-900 dark:border-gray-900"
     :class="[rounded]"
     @submit="submit"
+    style="overflow-x:scroll;"
   >
     <header
       v-if="title"

@@ -24,11 +24,10 @@
     <tr>
       <th v-if="checkable"></th>
       <th></th>
-      <th>Name</th>
-      <th>Company</th>
-      <th>City</th>
-      <th>Progress</th>
-      <th>Created</th>
+      <th>SL No.</th>
+      <th>Title</th>
+      <th>Cities</th>
+      <th>Category</th>
       <th></th>
     </tr>
     </thead>
@@ -41,9 +40,6 @@
       <td data-label="Name">{{ client.name }}</td>
       <td data-label="Company">{{ client.company }}</td>
       <td data-label="City">{{ client.city }}</td>
-      <td data-label="Progress" class="progress-cell">
-        <progress max="100" :value="client.progress">{{ client.progress }}</progress>
-      </td>
       <td data-label="Created">
         <small class="text-gray-500 dark:text-gray-400" :title="client.created">{{ client.created }}</small>
       </td>
