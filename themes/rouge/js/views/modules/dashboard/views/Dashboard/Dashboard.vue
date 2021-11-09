@@ -28,6 +28,15 @@
                 suffix="%"
                 label="Services"
             />
+            <card-widget
+                trend="50%"
+                trend-type="up"
+                color="text-green-500"
+                :icon="mdiCreditCard"
+                :number="2000"
+                prefix="$"
+                label="Wallet"
+            />
         </div>
 
         <card-component

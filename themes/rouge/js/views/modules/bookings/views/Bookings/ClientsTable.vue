@@ -39,7 +39,6 @@
                     <th v-if="checkable"></th>
                     <th></th>
                     <th>Booking ID</th>
-                    <th>Call Type</th>
                     <th>City</th>
                     <th>Customer</th>
                     <th>Booking Date</th>
@@ -62,7 +61,6 @@
                         <user-avatar :username="client.name" class="image" />
                     </td>
                     <td data-label="Booking ID">{{ client.name }}</td>
-                    <td data-label="Call Type">{{ client.company }}</td>
                     <td data-label="City">{{ client.city }}</td>
                     <td data-label="Customer" class="progress-cell">
                         <progress max="100" :value="client.progress">

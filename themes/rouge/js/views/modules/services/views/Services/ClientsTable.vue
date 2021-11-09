@@ -23,8 +23,7 @@
     <thead>
     <tr>
       <th v-if="checkable"></th>
-      <th>SL No.</th>
-      <th>City</th>
+      <th>Service ID</th>
       <th>Category Name</th>
       <th>Sub Category Name</th>
       <th>Service Name</th>
@@ -38,7 +37,6 @@
     <tr v-for="client in itemsPaginated" :key="client.id">
       <checkbox-cell v-if="checkable" @checked="checked($event, client)"/>
       <td data-label="Name">{{ client.name }}</td>
-      <td data-label="Company">{{ client.company }}</td>
       <td data-label="Company">{{ client.company }}</td>
       <td data-label="Company">{{ client.company }}</td>
       <td data-label="Company">{{ client.company }}</td>

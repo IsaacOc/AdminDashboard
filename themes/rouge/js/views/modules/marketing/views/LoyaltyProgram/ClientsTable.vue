@@ -39,7 +39,7 @@
                 <tr>
                     <th v-if="checkable"></th>
                     <th></th>
-                    <th>Sl No.</th>
+                    <th>Serial No.</th>
                     <th>Title</th>
                     <th>Start Date</th>
                     <th>End Date</th>

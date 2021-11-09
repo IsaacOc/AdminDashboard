@@ -23,12 +23,12 @@
     <thead>
     <tr>
       <th v-if="checkable"></th>
-      <th></th>
-      <th>Name</th>
-      <th>Company</th>
-      <th>City</th>
-      <th>Progress</th>
-      <th>Created</th>
+      <th>Booking ID</th>
+      <th>Booking Date & Time</th>
+      <th>Provider Name</th>
+      <th>Customer Name</th>
+      <th>Rating</th>
+      <th>Review</th>
       <th></th>
     </tr>
     </thead>

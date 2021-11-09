@@ -288,7 +288,7 @@ export default [
             ],
         },
         {
-            label: "Manage Access",
+            label: "Permissions & Roles",
             icon: mdiLock,
         },
     //     {

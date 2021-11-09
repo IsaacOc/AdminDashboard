@@ -39,7 +39,7 @@
                 <tr>
                     <th v-if="checkable"></th>
                     <th></th>
-                    <th>SL No.</th>
+                    <th>Serial No.</th>
                     <th>City</th>
                     <th>Business Name</th>
                     <th>Business Group</th>

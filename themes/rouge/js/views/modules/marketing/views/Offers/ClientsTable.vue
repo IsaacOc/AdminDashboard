@@ -24,7 +24,7 @@
     <tr>
       <th v-if="checkable"></th>
       <th></th>
-      <th>SL No.</th>
+      <th>Serial No.</th>
       <th>Title</th>
       <th>Cities</th>
       <th>Category</th>

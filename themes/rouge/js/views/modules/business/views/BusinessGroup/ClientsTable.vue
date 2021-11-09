@@ -23,8 +23,12 @@
     <thead>
     <tr>
       <th v-if="checkable"></th>
-      <th>SL No.</th>
-      <th>Business Group Name</th>
+      <th>Serial No.</th>
+      <th>Business Name</th>
+      <th>Business Location</th>
+      <th>Business Directors</th>
+      <th>Registered Agent Mobile</th>
+      <th>Registered Agent Name</th>
       <th>Business Image</th>
       <th></th>
     </tr>
@@ -33,6 +37,10 @@
     <tr v-for="client in itemsPaginated" :key="client.id">
       <checkbox-cell v-if="checkable" @checked="checked($event, client)"/>
       <td data-label="Name">{{ client.name }}</td>
+      <td data-label="Company">{{ client.company }}</td>
+      <td data-label="Company">{{ client.company }}</td>
+      <td data-label="Company">{{ client.company }}</td>
+      <td data-label="Company">{{ client.company }}</td>
       <td data-label="Company">{{ client.company }}</td>
       <td class="image-cell">
         <user-avatar :username="client.name" class="image" />

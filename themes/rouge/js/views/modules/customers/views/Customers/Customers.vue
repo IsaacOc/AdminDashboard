@@ -1,10 +1,10 @@
 <template>
-    <hero-bar>Cusomers</hero-bar>
+    <hero-bar>Customers</hero-bar>
 
     <main-section>
         <card-component
             class="mb-6"
-            title="Cusomers"
+            title="Customers"
             :icon="mdiAccountMultiple"
             has-table
         >
@@ -20,7 +20,7 @@ import CardComponent from "./CardComponent";
 import ClientsTable from "./ClientsTable";
 
 export default {
-    name: "Cusomers",
+    name: "Customers",
     components: {
         MainSection,
         HeroBar,

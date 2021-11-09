@@ -39,7 +39,7 @@
                 <tr>
                     <th v-if="checkable"></th>
                     <th></th>
-                    <th>SL No.</th>
+                    <th>Serial No.</th>
                     <th>Coupon Code</th>
                     <th>Claim Status</th>
                     <th>Customer Name</th>

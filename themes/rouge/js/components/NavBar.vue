@@ -73,9 +73,6 @@
         <!-- <nav-bar-item href="https://github.com/justboil/admin-one-vue-tailwind" has-divider is-desktop-icon-only>
           <nav-bar-item-label :icon="mdiGithub" label="GitHub" is-desktop-icon-only />
         </nav-bar-item> -->
-        <nav-bar-item is-desktop-icon-only>
-          <nav-bar-item-label :icon="mdiLogout" label="Log out" is-desktop-icon-only />
-        </nav-bar-item>
       </div>
     </div>
   </nav>
