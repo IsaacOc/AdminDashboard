@@ -22,3 +22,16 @@ Watch for changes during development:
 ```shell 
 npm run watch
 ```
+##Finished FrontEnd Modules:
+1.Dashboard
+2.Reports
+3.Businesses
+4.Bookings
+5.Services
+6.Financial
+7.Marketing
+8.Customers
+9.Service Providers
+10.Logs
+11.Categories
+12.Ratings
