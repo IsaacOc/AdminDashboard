@@ -2,8 +2,8 @@
   <full-screen-section bg="login" v-slot="{ cardClass, cardRounded }">
     <card-component  :class="cardClass" :rounded="cardRounded" @submit.prevent="submit" form>
 
-      <field label="Login" help="Please enter your login">
-        <control v-model="form.login" :icon="mdiAccount" name="login" autocomplete="username"/>
+      <field label="Login" help="Please enter your email">
+        <control v-model="form.email" :icon="mdiAccount" name="email" autocomplete="username"/>
       </field>
 
       <field label="Password" help="Please enter your password">
@@ -57,6 +57,7 @@ export default {
     const router = useRouter()
 
     const submit = () => {
+      console.log(form)
       router.push('/')
     }
 

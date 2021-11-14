@@ -17,11 +17,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-<<<<<<< HEAD
     // public const HOME = '/home';
-=======
-    public const HOME = '/home';
->>>>>>> c71c05adc9b14966338fbae3ae973de2ad00b28b
 
     /**
      * The controller namespace for the application.
@@ -39,11 +35,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-<<<<<<< HEAD
         // parent::boot()
         $this->configureRateLimiting();
-        $this->loadMigrationsFrom(app_path('Modules/TestModule/database/Migrations'));
-
+        $this->loadMigrationsFrom(base_path('database/migrations'));
     //     $this->routes(function () {
     //         Route::prefix('api')
     //             ->middleware('api')
@@ -54,20 +48,6 @@ class RouteServiceProvider extends ServiceProvider
     //             ->namespace($this->namespace)
     //             ->group(base_path('routes/web.php'));
     //     });
-=======
-        $this->configureRateLimiting();
-
-        $this->routes(function () {
-            Route::prefix('api')
-                ->middleware('api')
-                ->namespace($this->namespace)
-                ->group(base_path('routes/api.php'));
-
-            Route::middleware('web')
-                ->namespace($this->namespace)
-                ->group(base_path('routes/web.php'));
-        });
->>>>>>> c71c05adc9b14966338fbae3ae973de2ad00b28b
     }
 
     /**
@@ -81,7 +61,6 @@ class RouteServiceProvider extends ServiceProvider
             return Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip());
         });
     }
-<<<<<<< HEAD
       /**
      * Define the routes for the application.
      *
@@ -90,16 +69,21 @@ class RouteServiceProvider extends ServiceProvider
     public function map()
     {
         $this->mapModulesRoutes();
+        $this->mapApiRoutes();
     }
 
     protected function mapModulesRoutes()
     {
         // dump(config('database.default'));
         // Use the middleware 'web' if you're writing a Web Application 
+        Route::middleware('api')->group(base_path('routes/modules.php'));
+    }
+
+    // Maps all registeration, login related routes
+    protected function mapApiRoutes()
+    {
         Route::prefix('api')
             ->middleware('api')
-            ->group(base_path('routes/modules.php'));
+            ->group(base_path('routes/api.php'));
     }
-=======
->>>>>>> c71c05adc9b14966338fbae3ae973de2ad00b28b
 }
