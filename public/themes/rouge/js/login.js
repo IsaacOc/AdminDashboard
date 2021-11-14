@@ -156,8 +156,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
-/* harmony import */ var _mdi_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mdi/js */ "./node_modules/@mdi/js/mdi.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
+/* harmony import */ var _mdi_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @mdi/js */ "./node_modules/@mdi/js/mdi.js");
 /* harmony import */ var _components_FullScreenSection__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/FullScreenSection */ "./themes/rouge/js/components/FullScreenSection.vue");
 /* harmony import */ var _components_CardComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/CardComponent */ "./themes/rouge/js/components/CardComponent.vue");
 /* harmony import */ var _components_CheckRadioPicker__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/CheckRadioPicker */ "./themes/rouge/js/components/CheckRadioPicker.vue");
@@ -166,6 +167,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Divider_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/components/Divider.vue */ "./themes/rouge/js/components/Divider.vue");
 /* harmony import */ var _components_JbButton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/components/JbButton */ "./themes/rouge/js/components/JbButton.vue");
 /* harmony import */ var _components_JbButtons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/components/JbButtons */ "./themes/rouge/js/components/JbButtons.vue");
+function _readOnlyError(name) { throw new TypeError("\"" + name + "\" is read-only"); }
+
+
 
 
 
@@ -190,23 +194,30 @@ __webpack_require__.r(__webpack_exports__);
     JbButtons: _components_JbButtons__WEBPACK_IMPORTED_MODULE_8__["default"]
   },
   setup: function setup() {
+    var store = (0,vuex__WEBPACK_IMPORTED_MODULE_9__.useStore)();
     var form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      login: 'john.doe',
-      pass: 'very-secret-password-fYjUw-',
+      email: '',
+      password: '',
       remember: ['remember']
     });
-    var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_9__.useRouter)();
+    var error = ref('');
+    var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_10__.useRouter)();
 
     var submit = function submit() {
-      console.log(form);
-      router.push('/');
+      store.dispatch('login', form).then(function (res) {
+        console.log('resolved');
+        router.push('/');
+      })["catch"](function (err) {
+        err.message, _readOnlyError("error");
+      });
     };
 
     return {
       form: form,
       submit: submit,
-      mdiAccount: _mdi_js__WEBPACK_IMPORTED_MODULE_10__.mdiAccount,
-      mdiAsterisk: _mdi_js__WEBPACK_IMPORTED_MODULE_10__.mdiAsterisk
+      mdiAccount: _mdi_js__WEBPACK_IMPORTED_MODULE_11__.mdiAccount,
+      mdiAsterisk: _mdi_js__WEBPACK_IMPORTED_MODULE_11__.mdiAsterisk,
+      error: error
     };
   }
 });
@@ -351,7 +362,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
+var _hoisted_1 = {
+  "class": "alert alert-danger px-auto py-2"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_card_component = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("card-component");
+
   var _component_control = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("control");
 
   var _component_field = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("field");
@@ -364,8 +380,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_jb_buttons = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("jb-buttons");
 
-  var _component_card_component = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("card-component");
-
   var _component_full_screen_section = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("full-screen-section");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_full_screen_section, {
@@ -374,7 +388,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref) {
       var cardClass = _ref.cardClass,
           cardRounded = _ref.cardRounded;
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_card_component, {
+      return [$setup.error.length !== 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_card_component, {
+        key: 0
+      }, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.error), 1
+          /* TEXT */
+          )];
+        }),
+        _: 1
+        /* STABLE */
+
+      })) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_card_component, {
+        key: 1,
         "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(cardClass),
         rounded: cardRounded,
         onSubmit: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)($setup.submit, ["prevent"]),
@@ -393,7 +419,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                 }),
                 icon: $setup.mdiAccount,
                 name: "email",
-                autocomplete: "username"
+                autocomplete: "off"
               }, null, 8
               /* PROPS */
               , ["modelValue", "icon"])];
@@ -407,14 +433,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           }, {
             "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
               return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_control, {
-                modelValue: $setup.form.pass,
+                modelValue: $setup.form.password,
                 "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
-                  return $setup.form.pass = $event;
+                  return $setup.form.password = $event;
                 }),
                 icon: $setup.mdiAsterisk,
                 type: "password",
                 name: "password",
-                autocomplete: "current-password"
+                autocomplete: "off"
               }, null, 8
               /* PROPS */
               , ["modelValue", "icon"])];
@@ -444,6 +470,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                 color: "info",
                 outline: "",
                 label: "Back"
+              }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jb_button, {
+                to: "/register",
+                color: "success",
+                outline: "",
+                label: "Register"
               })];
             }),
             _: 1
@@ -456,7 +487,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
       }, 1032
       /* PROPS, DYNAMIC_SLOTS */
-      , ["class", "rounded", "onSubmit"])];
+      , ["class", "rounded", "onSubmit"]))];
     }),
     _: 1
     /* STABLE */

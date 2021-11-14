@@ -41,7 +41,6 @@ class AdminController extends Controller
             Auth::login($user);
             
             return response()->json([
-                'login' => Auth::login($user),
                 'user' => $user,
                 'token' => $user->createToken('Token')->accessToken,
                 'Message' => 'User created successfully'
@@ -73,7 +72,6 @@ class AdminController extends Controller
         Auth::login($user);
             
         return response()->json([
-            'login' => Auth::login($user),
             'user' => $user,
             'token' => $user->createToken('Token')->accessToken,
             'Message' => 'User Logged in successfully'

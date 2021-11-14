@@ -10,12 +10,15 @@ require("./bootstrap");
  * We will create a fresh Vue application instance.
  */
 import { createApp } from "vue";
+import axios from 'axios'
 
 import App from './App.vue'
 import router from './router'
 import store from './store'
 
 import '../css/main.css'
+
+axios.defaults.baseURL = 'http://localhost:8000'
 
 /* Fetch sample data */
 store.dispatch('fetch', 'clients')
@@ -25,6 +28,12 @@ store.dispatch('fetch', 'history')
 // store.dispatch('darkMode')
 
 /* Collapse mobile aside menu on route change */
+router.onError(error => {
+  if (/loading chunk \d* failed./i.test(error.message)) {
+    window.location.reload()
+  }
+})
+
 router.beforeEach(to => {
   store.dispatch('asideMobileToggle', false)
   store.dispatch('asideLgToggle', false)

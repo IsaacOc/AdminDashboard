@@ -83,6 +83,17 @@ const routes = [
     },
     {
         meta: {
+            title: "Register",
+            fullScreen: true,
+        },
+        path: "/register",
+        name: "register",
+        component: () => import("../views/Register"),
+        // component: () =>
+        //     import(/* webpackChunkName: "register" */ "../views/Register"),
+    },
+    {
+        meta: {
             title: "Error",
             fullScreen: true,
         },

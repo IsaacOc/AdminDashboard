@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Route;
 //    return response()->json(['Modules Routes File working']);
 // });
 
-Route::group([], base_path('app/Modules/TestModule/routes/api.php'));
 Route::group([], base_path('app/Modules/Admin_Login/routes/api.php'));
 
 Route::get('/', function () {
