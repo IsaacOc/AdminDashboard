@@ -44,18 +44,18 @@ export default {
 
       register({commit}, {firstname, lastname, email, phone, password, isAdmin }) {
          console.log(firstname, lastname, email, password, isAdmin, phone,)
-         return new Promise((resolve, reject) => {
+         // return new Promise((resolve, reject) => {
             axios.post('/api/admin/register', { firstname, lastname, email, phone, password, isAdmin }, { headers: {'Content-type': 'application/json' } })
                .then(res => {
                   console.log(res.data)
                   commit('REGISTERED', res.data.token)
-                  resolve(res)
+                  // resolve(res)
                })
                .catch(err => {
                   console.log(err.message)
-                  reject(err)
+                  // reject(err)
                })
-         })
+         // })
       },
 
       logout({commit}) {

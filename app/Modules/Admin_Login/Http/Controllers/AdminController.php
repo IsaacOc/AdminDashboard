@@ -25,7 +25,8 @@ class AdminController extends Controller
             'password' => 'required|string',
             'isAdmin' => 'required'
         ]);
-        try {
+
+        // try {
 
             $user = new User([
                 'firstname' => $request->firstname,
@@ -45,9 +46,9 @@ class AdminController extends Controller
                 'token' => $user->createToken('Token')->accessToken,
                 'Message' => 'User created successfully'
             ]); 
-        } catch(Throwable $e) {
-            throw new Exception('Invalid Data');
-        }
+        // } catch(Throwable $e) {
+        //     throw new Exception('Invalid Data');
+        // }
     }
 
     // Login admin User

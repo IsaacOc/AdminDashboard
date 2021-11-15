@@ -1,11 +1,9 @@
 <template>
   <full-screen-section bg="login" v-slot="{ cardClass, cardRounded }">
-    <card-component v-if="error.length !== 0">
-      <div class="alert alert-danger px-auto py-2">
+    <card-component :class="cardClass" :rounded="cardRounded" @submit.prevent="submit" form>
+      <div v-if="error.length !== 0" class="alert alert-danger px-auto py-2">
         {{error}}  
       </div>
-    </card-component>
-    <card-component  v-else :class="cardClass" :rounded="cardRounded" @submit.prevent="submit" form>
 
       <field label="Login" help="Please enter your email">
         <control v-model="form.email" :icon="mdiAccount" name="email" autocomplete="off"/>
@@ -29,7 +27,7 @@
 </template>
 
 <script>
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 import { mdiAccount, mdiAsterisk } from '@mdi/js'
@@ -74,7 +72,7 @@ export default {
           router.push('/')
         })
         .catch(err => {
-          error = err.message
+          error.value = err.message
         })
     }
 

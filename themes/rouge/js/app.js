@@ -27,13 +27,13 @@ store.dispatch('fetch', 'history')
 /* Dark mode */
 // store.dispatch('darkMode')
 
-/* Collapse mobile aside menu on route change */
 router.onError(error => {
   if (/loading chunk \d* failed./i.test(error.message)) {
-    window.location.reload()
-  }
-})
-
+      window.location.reload()
+    }
+  })
+  
+/* Collapse mobile aside menu on route change */
 router.beforeEach(to => {
   store.dispatch('asideMobileToggle', false)
   store.dispatch('asideLgToggle', false)

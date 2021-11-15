@@ -12,6 +12,7 @@ import ServiceProviders from "../views/modules/ServiceProviders";
 import logs from "../views/modules/logs";
 import category from "../views/modules/category";
 import ratings from "../views/modules/ratings";
+import Register from "../views/Register";
 
 const routes = [
     {
@@ -88,9 +89,9 @@ const routes = [
         },
         path: "/register",
         name: "register",
-        component: () => import("../views/Register"),
-        // component: () =>
-        //     import(/* webpackChunkName: "register" */ "../views/Register"),
+        // component: Register,//() => import("../views/Register"),
+        component: () =>
+            import(/* webpackChunkName: "register" */ "../views/Register"),
     },
     {
         meta: {
