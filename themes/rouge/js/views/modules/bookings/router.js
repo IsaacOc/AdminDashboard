@@ -1,5 +1,8 @@
 export default [
     {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/bookings",
         name: "bookings",
         component: () =>

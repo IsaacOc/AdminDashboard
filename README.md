@@ -50,3 +50,13 @@ Load your migration inside the service provider manually using loadMigrations Fr
 Make A controller inside the Http/Controllers in Module
 Register the controller to Route in the routes folder of your module
 Make a model using the artisan command with a path option to the module/entities folder
+
+### Configure Backend and passport
+
+php artisan key:generate
+php artisan passport:install
+configure passport environment variables
+
+### Configure Axios from the app.js
+
+Add your app location in the htdocs

@@ -1,12 +1,10 @@
 <template>
-  <div bg="login container">
-     <div class="register w-48">
-         <card-component v-if="error.length !== 0">
-            <div class="alert alert-danger px-auto py-2">
+  <div bg="login container mx-auto">
+     <div class="register w-90">
+         <card-component class="test register rounded border card" @submit.prevent="submit" form>
+            <div class="alert alert-danger px-auto py-2" v-if="error.length !== 0">
             {{error}}  
             </div>
-         </card-component>
-         <card-component class="test register rounded border card"  v-else @submit.prevent="submit" form>
             <field label="First Name" help="Please enter your First Name">
             <control v-model="form.firstname" :icon="mdiAccountCircle" name="firstname" autocomplete="off"/>
             </field>
@@ -85,7 +83,7 @@ export default {
       store.dispatch('register', form)
         .then(res => {
           console.log('resolved')
-          router.push('/')
+          router.replace('/')
         })
         .catch(err => {
           error.value = err.message

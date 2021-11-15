@@ -49,6 +49,7 @@
           <user-avatar class="w-6 h-6 mr-3 inline-flex" />
           <div>
             <span>{{ userName }}</span>
+            <span v-if="user != null">{{ user.lastname }}</span>
           </div>
 
           <template #dropdown>
@@ -63,24 +64,23 @@
             </nav-bar-item>
             <nav-bar-menu-divider/>
             <nav-bar-item>
-              <nav-bar-item-label :icon="mdiLogout" label="Log Out"/>
+              <jb-button :icon="mdiLogout" @click="logout" color="danger" outline label="Logout" />
+              <!-- <nav-bar-item-label :icon="mdiLogout" label="Log Out"/> -->
             </nav-bar-item>
           </template>
         </nav-bar-menu>
         <nav-bar-item @click.prevent="toggleLightDark" has-divider is-desktop-icon-only>
           <nav-bar-item-label :icon="mdiThemeLightDark" label="Light/Dark" is-desktop-icon-only />
         </nav-bar-item>
-        <!-- <nav-bar-item href="https://github.com/justboil/admin-one-vue-tailwind" has-divider is-desktop-icon-only>
-          <nav-bar-item-label :icon="mdiGithub" label="GitHub" is-desktop-icon-only />
-        </nav-bar-item> -->
       </div>
     </div>
   </nav>
 </template>
 
 <script>
-import { computed, ref } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
 import {
   mdiForwardburger,
   mdiBackburger,
@@ -104,6 +104,7 @@ import NavBarMenuDivider from '@/components/NavBarMenuDivider'
 import UserAvatar from '@/components/UserAvatar'
 import Icon from '@/components/Icon'
 import NavBarSearch from '@/components/NavBarSearch'
+import JbButton from '@/components/JbButton'
 
 export default {
   name: 'NavBar',
@@ -114,14 +115,22 @@ export default {
     NavBarItem,
     NavBarItemLabel,
     NavBarMenuDivider,
-    Icon
+    Icon,
+    JbButton,
   },
   setup () {
     const store = useStore()
+    const router = useRouter()
 
     const toggleLightDark = () => {
       store.dispatch('darkMode')
     }
+
+    const user = computed(() => store.getters.user)
+
+    onMounted(() => {
+      store.dispatch('fetchAuthenticatedUser')
+    })
 
     const isNavBarVisible = computed(() => !store.state.isFullScreen)
 
@@ -145,6 +154,14 @@ export default {
       store.dispatch('asideLgToggle', true)
     }
 
+    const logout = () => {
+      store.dispatch('logout').then(res => {
+        router.replace('/login')
+      }).catch(err => {
+        console.log(err.message)
+      })
+    }
+
     return {
       toggleLightDark,
       isNavBarVisible,
@@ -165,7 +182,10 @@ export default {
       mdiEmail,
       mdiLogout,
       mdiGithub,
-      mdiThemeLightDark
+      mdiThemeLightDark,
+      logout,
+      JbButton,
+      user
     }
   }
 }

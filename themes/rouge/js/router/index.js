@@ -20,6 +20,7 @@ const routes = [
         // We combine it with defaultDocumentTitle set in `src/main.js` on router.afterEach hook
         meta: {
             title: "Dashboard",
+            requiresAuth: true,
         },
         path: "/",
         name: "home",
@@ -89,7 +90,6 @@ const routes = [
         },
         path: "/register",
         name: "register",
-        // component: Register,//() => import("../views/Register"),
         component: () =>
             import(/* webpackChunkName: "register" */ "../views/Register"),
     },

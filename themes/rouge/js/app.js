@@ -39,6 +39,23 @@ router.beforeEach(to => {
   store.dispatch('asideLgToggle', false)
 })
 
+/* Router Navigation Guard */
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (!store.getters.loggedIn) {
+      next({
+        path: '/login',
+        query: { redirectFrom: to.fullPath }
+    
+      })
+    } else {
+      next()
+    }
+  } else {
+    next()
+  }
+})
+
 /* Default title tag */
 const defaultDocumentTitle = 'Admin One Vue 3 Tailwind'
 

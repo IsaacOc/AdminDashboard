@@ -69,7 +69,7 @@ export default {
       store.dispatch('login', form)
         .then(res => {
           console.log('resolved')
-          router.push('/')
+          router.replace('/')
         })
         .catch(err => {
           error.value = err.message

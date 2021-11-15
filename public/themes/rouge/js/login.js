@@ -109,7 +109,7 @@ __webpack_require__.r(__webpack_exports__);
     var submit = function submit() {
       store.dispatch('login', form).then(function (res) {
         console.log('resolved');
-        router.push('/');
+        router.replace('/');
       })["catch"](function (err) {
         error.value = err.message;
       });
