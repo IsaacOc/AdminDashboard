@@ -1,5 +1,8 @@
 export default [
     {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/marketing/campaign-qualified-trip-logs",
         name: "campaign-qualified-trip-logs",
         component: () =>
@@ -9,6 +12,9 @@ export default [
     },
 
     {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/marketing/input-booking-logs",
         name: "input-booking-logs",
         component: () =>
@@ -18,6 +24,9 @@ export default [
     },
 
     {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/marketing/loyalty-program",
         name: "loyalty-program",
         component: () =>
@@ -27,6 +36,9 @@ export default [
     },
 
     {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/marketing/offers",
         name: "offers",
         component: () =>
@@ -43,6 +55,9 @@ export default [
     },
 
     {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/marketing/promo-codes",
         name: "promo-codes",
         component: () =>
@@ -51,6 +66,9 @@ export default [
             ),
     },
     {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/marketing/referral-campaign",
         name: "referral-campaign",
         component: () =>

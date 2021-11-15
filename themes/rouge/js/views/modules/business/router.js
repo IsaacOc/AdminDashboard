@@ -1,5 +1,8 @@
 export default [
     {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/business/business-group",
         name: "business-group",
         component: () =>
@@ -9,6 +12,9 @@ export default [
     },
 
     {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/business/business-list",
         name: "business-list",
         component: () =>

@@ -1,5 +1,8 @@
 export default [
     {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/reports/app-earning",
         name: "reports-app-earning",
         component: () =>
@@ -9,6 +12,9 @@ export default [
     },
 
     {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/reports/boooking",
         name: "reports-booking",
         component: () =>
@@ -16,6 +22,9 @@ export default [
     },
 
     {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/reports/customer",
         name: "reports-customer",
         component: () =>
@@ -23,6 +32,9 @@ export default [
     },
 
     {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/reports/payment-gateway",
         name: "reports-payment-gateway",
         component: () =>
@@ -30,6 +42,9 @@ export default [
     },
 
     {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/reports/provider",
         name: "reports-provider",
         component: () =>
@@ -37,6 +52,9 @@ export default [
     },
 
     {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/reports/provider-earning",
         name: "reports-provider-earning",
         component: () =>
@@ -44,6 +62,9 @@ export default [
     },
 
     {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/reports/revenue-received",
         name: "reports-revenue-received",
         component: () =>

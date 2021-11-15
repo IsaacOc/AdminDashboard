@@ -1,5 +1,8 @@
 export default [
     {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/service-provider-list",
         name: "provider-list",
         component: () =>
@@ -8,6 +11,9 @@ export default [
             ),
     },
     {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/provider-plans",
         name: "provider-plans",
         component: () =>

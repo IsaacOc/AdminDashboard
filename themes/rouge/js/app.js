@@ -41,15 +41,19 @@ router.beforeEach(to => {
 
 /* Router Navigation Guard */
 router.beforeEach((to, from, next) => {
-  if (to.matched.some(record => record.meta.requiresAuth)) {
+  if (to.matched.some(record => record.meta.requiresAuth )) {
     if (!store.getters.loggedIn) {
       next({
         path: '/login',
-        query: { redirectFrom: to.fullPath }
+        // query: { redirectFrom: to.fullPath }
     
       })
     } else {
-      next()
+      if(to.fullPath == '/login') {
+        return
+      } else {
+        next()
+      }
     }
   } else {
     next()

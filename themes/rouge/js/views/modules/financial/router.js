@@ -1,5 +1,8 @@
 export default [
     {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/accounting",
         name: "accounting",
         component: () =>
@@ -10,6 +13,9 @@ export default [
 
     // Accounting Statement routes
     {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/accounting-statement/app",
         name: "accounting-statement-app",
         component: () =>
@@ -19,6 +25,9 @@ export default [
     },
 
     {
+        meta: {
+            requiresAuth: true,
+        },   
         path: "/accounting-statement/customer",
         name: "accounting-statement-customer",
         component: () =>
@@ -28,6 +37,9 @@ export default [
     },
 
     {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/accounting-statement/operator",
         name: "accounting-statement-operator",
         component: () =>
@@ -37,6 +49,9 @@ export default [
     },
 
     {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/accounting-statement/pg",
         name: "accounting-statement-pg",
         component: () =>
@@ -46,6 +61,9 @@ export default [
     },
 
     {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/accounting-statement/provider",
         name: "accounting-statement-provider",
         component: () =>

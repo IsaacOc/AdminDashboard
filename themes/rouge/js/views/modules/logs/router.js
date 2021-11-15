@@ -1,5 +1,8 @@
 export default [
     {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/email",
         name: "email",
         component: () =>
@@ -8,6 +11,9 @@ export default [
             ),
     },
     {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/notifications",
         name: "notifications",
         component: () =>
@@ -17,6 +23,9 @@ export default [
     },
 
     {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/sms",
         name: "sms",
         component: () =>

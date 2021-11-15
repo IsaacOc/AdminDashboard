@@ -1,5 +1,8 @@
 export default [
     {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/category",
         name: "category",
         component: () =>
@@ -8,6 +11,9 @@ export default [
             ),
     },
     {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/sub-category",
         name: "sub-category",
         component: () =>
