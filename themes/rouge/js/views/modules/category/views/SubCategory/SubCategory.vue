@@ -8,6 +8,10 @@
             :icon="mdiAccountMultiple"
             has-table
         >
+            <div class="dflex mb-2 mt-2 bg-white border border-gray-100 dark:bg-gray-900 dark:border-gray-900">
+                <jb-button to="/sub-category/create" color="primary" outline label="+ Add a Category" />
+            </div>
+
             <clients-table checkable />
         </card-component>
     </main-section>
@@ -18,6 +22,7 @@ import MainSection from "./MainSection";
 import HeroBar from "./HeroBar";
 import CardComponent from "./CardComponent";
 import ClientsTable from "./ClientsTable";
+import { mdiAccountMultiple } from '@mdi/js'
 
 export default {
     name: "SubCategory",
@@ -27,6 +32,7 @@ export default {
         CardComponent,
         ClientsTable,
         HeroBar,
+        mdiAccountMultiple
     },
 };
 </script>

@@ -14,6 +14,50 @@ export default [
         meta: {
             requiresAuth: true,
         },
+        path: "/category/create",
+        name: "CategoryCreate",
+        component: () =>
+            import(
+                /* webpackChunkName: "modules" */ "./views/Category/CategoryCreate"
+            ),
+    },
+    {
+        meta: {
+            requiresAuth: true,
+        },
+        path: "/sub-category/create",
+        name: "SubCategoryCreate",
+        component: () =>
+            import(
+                /* webpackChunkName: "modules" */ "./views/SubCategory/SubCategoryCreate"
+            ),
+    },
+    {
+        meta: {
+            requiresAuth: true,
+        },
+        path: "/category/update",
+        name: "CategoryUpdate",
+        component: () =>
+            import(
+                /* webpackChunkName: "modules" */ "./views/Category/CategoryUpdate"
+            ),
+    },
+    {
+        meta: {
+            requiresAuth: true,
+        },
+        path: "/sub-category/update",
+        name: "SubCategoryUpdate",
+        component: () =>
+            import(
+                /* webpackChunkName: "modules" */ "./views/SubCategory/SubCategoryUpdate"
+            ),
+    },
+    {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/sub-category",
         name: "sub-category",
         component: () =>

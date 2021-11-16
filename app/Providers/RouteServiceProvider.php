@@ -38,6 +38,9 @@ class RouteServiceProvider extends ServiceProvider
         // parent::boot()
         $this->configureRateLimiting();
         $this->loadMigrationsFrom(base_path('database/migrations'));
+        $this->loadMigrationsFrom(base_path('App/Modules/Category/database/migrations'));
+        $this->loadMigrationsFrom(base_path('App/Modules/SubCategory/database/migrations'));
+
     //     $this->routes(function () {
     //         Route::prefix('api')
     //             ->middleware('api')
