@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export default {
    state: {
-      loggedIn: true ? localStorage.getItem('rouge_token') !== (null || undefined) : false,
+      loggedIn: true ? localStorage.getItem('rouge_token') !== null || undefined : false,
       token: localStorage.getItem('rouge_token') || null,
       auth_error: null,
       user: null,

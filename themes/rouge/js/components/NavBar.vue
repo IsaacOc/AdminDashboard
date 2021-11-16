@@ -158,6 +158,9 @@ export default {
       store.dispatch('logout').then(res => {
         router.replace('/login')
       }).catch(err => {
+        if(err.status == 401) {
+          router.replace('/login')
+        }
         console.log(err.message)
       })
     }

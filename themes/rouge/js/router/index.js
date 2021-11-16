@@ -77,6 +77,7 @@ const routes = [
         meta: {
             title: "Login",
             fullScreen: true,
+            requiresAuth: false,
         },
         path: "/login",
         name: "login",
@@ -87,6 +88,7 @@ const routes = [
         meta: {
             title: "Register",
             fullScreen: true,
+            requiresAuth: false,
         },
         path: "/register",
         name: "register",
