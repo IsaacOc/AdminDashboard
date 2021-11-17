@@ -15,6 +15,6 @@ use App\Modules\SubCategory\Http\Controllers\SubCategoryController;
 Route::prefix('api/admin/sub-category')->group(function() {
 
    Route::get('/', [SubCategoryController::class, 'index']);
-   Route::get('/:subCategoryId', [SubCategoryController::class, 'show']);
+   Route::get('/{subCategoryId}', [SubCategoryController::class, 'show']);
    Route::post('/', [SubCategoryController::class, 'store']);
 });

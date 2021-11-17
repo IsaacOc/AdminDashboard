@@ -2,21 +2,18 @@
 
 namespace App\Modules\SubCategory\Http\Controllers;
 
-use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Modules\SubCategory\Entities\SubCategory;
 
 class SubCategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     * @return Renderable
-     */
     public function index()
     {
         $subCategories = SubCategory::orderBy('created_at', 'desc')->get();
         return response()->json($subCategories);
+        // return response()->json('Sub categories');
+
     }
 
     /**

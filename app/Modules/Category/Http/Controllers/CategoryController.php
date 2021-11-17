@@ -6,7 +6,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Modules\Category\Entities\Category;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+// use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class CategoryController extends Controller
 {
@@ -56,10 +56,11 @@ class CategoryController extends Controller
     /**
      * Shows the specified category.
      */
-    public function show($category)
+    public function show($categoryId)
     {
-            $singleCategory = Category::findOrFail($category);
-
+        // return response()->json($categoryId);
+            $singleCategory = Category::where('id', $categoryId)->first();
+            // return response()->json($singleCategory);
             if($singleCategory) {
                 return response()->json($singleCategory);
             } else {

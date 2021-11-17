@@ -18,6 +18,8 @@
 </template>
 
 <script>
+import { onMounted } from 'vue'
+import {useStore} from 'vuex'
 import MainSection from "./MainSection";
 import HeroBar from "./HeroBar";
 import CardComponent from "./CardComponent";
@@ -35,5 +37,12 @@ export default {
         HeroBar,
         mdiAccountMultiple
     },
+    setup () {
+        const store = useStore()
+
+        onMounted(() => {
+            store.dispatch('fetchAllCategories')
+        })
+    }
 };
 </script>

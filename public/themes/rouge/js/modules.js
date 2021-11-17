@@ -1539,12 +1539,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _MainSection__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MainSection */ "./themes/rouge/js/views/modules/category/views/Category/MainSection.vue");
-/* harmony import */ var _HeroBar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HeroBar */ "./themes/rouge/js/views/modules/category/views/Category/HeroBar.vue");
-/* harmony import */ var _CardComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CardComponent */ "./themes/rouge/js/views/modules/category/views/Category/CardComponent.vue");
-/* harmony import */ var _ClientsTable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ClientsTable */ "./themes/rouge/js/views/modules/category/views/Category/ClientsTable.vue");
-/* harmony import */ var _mdi_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mdi/js */ "./node_modules/@mdi/js/mdi.js");
-/* harmony import */ var _components_JbButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/components/JbButton */ "./themes/rouge/js/components/JbButton.vue");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+/* harmony import */ var _MainSection__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MainSection */ "./themes/rouge/js/views/modules/category/views/Category/MainSection.vue");
+/* harmony import */ var _HeroBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./HeroBar */ "./themes/rouge/js/views/modules/category/views/Category/HeroBar.vue");
+/* harmony import */ var _CardComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CardComponent */ "./themes/rouge/js/views/modules/category/views/Category/CardComponent.vue");
+/* harmony import */ var _ClientsTable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ClientsTable */ "./themes/rouge/js/views/modules/category/views/Category/ClientsTable.vue");
+/* harmony import */ var _mdi_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mdi/js */ "./node_modules/@mdi/js/mdi.js");
+/* harmony import */ var _components_JbButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/components/JbButton */ "./themes/rouge/js/components/JbButton.vue");
 var _components;
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -1555,14 +1557,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Category",
   components: (_components = {
-    MainSection: _MainSection__WEBPACK_IMPORTED_MODULE_0__["default"],
-    HeroBar: _HeroBar__WEBPACK_IMPORTED_MODULE_1__["default"],
-    CardComponent: _CardComponent__WEBPACK_IMPORTED_MODULE_2__["default"],
-    ClientsTable: _ClientsTable__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }, _defineProperty(_components, "HeroBar", _HeroBar__WEBPACK_IMPORTED_MODULE_1__["default"]), _defineProperty(_components, "mdiAccountMultiple", _mdi_js__WEBPACK_IMPORTED_MODULE_5__.mdiAccountMultiple), _components)
+    MainSection: _MainSection__WEBPACK_IMPORTED_MODULE_1__["default"],
+    HeroBar: _HeroBar__WEBPACK_IMPORTED_MODULE_2__["default"],
+    CardComponent: _CardComponent__WEBPACK_IMPORTED_MODULE_3__["default"],
+    ClientsTable: _ClientsTable__WEBPACK_IMPORTED_MODULE_4__["default"]
+  }, _defineProperty(_components, "HeroBar", _HeroBar__WEBPACK_IMPORTED_MODULE_2__["default"]), _defineProperty(_components, "mdiAccountMultiple", _mdi_js__WEBPACK_IMPORTED_MODULE_6__.mdiAccountMultiple), _components),
+  setup: function setup() {
+    var store = (0,vuex__WEBPACK_IMPORTED_MODULE_7__.useStore)();
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(function () {
+      store.dispatch('fetchAllCategories');
+    });
+  }
 });
 
 /***/ }),
@@ -1578,17 +1588,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
-/* harmony import */ var _mdi_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @mdi/js */ "./node_modules/@mdi/js/mdi.js");
-/* harmony import */ var _components_FullScreenSection__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/FullScreenSection */ "./themes/rouge/js/components/FullScreenSection.vue");
-/* harmony import */ var _components_CardComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/CardComponent */ "./themes/rouge/js/components/CardComponent.vue");
-/* harmony import */ var _components_CheckRadioPicker__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/CheckRadioPicker */ "./themes/rouge/js/components/CheckRadioPicker.vue");
-/* harmony import */ var _components_Field__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/components/Field */ "./themes/rouge/js/components/Field.vue");
-/* harmony import */ var _components_Control__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/components/Control */ "./themes/rouge/js/components/Control.vue");
-/* harmony import */ var _components_Divider_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/components/Divider.vue */ "./themes/rouge/js/components/Divider.vue");
-/* harmony import */ var _components_JbButton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/components/JbButton */ "./themes/rouge/js/components/JbButton.vue");
-/* harmony import */ var _components_JbButtons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/components/JbButtons */ "./themes/rouge/js/components/JbButtons.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _mdi_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @mdi/js */ "./node_modules/@mdi/js/mdi.js");
+/* harmony import */ var _components_FullScreenSection__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/FullScreenSection */ "./themes/rouge/js/components/FullScreenSection.vue");
+/* harmony import */ var _components_CardComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/CardComponent */ "./themes/rouge/js/components/CardComponent.vue");
+/* harmony import */ var _components_CheckRadioPicker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/components/CheckRadioPicker */ "./themes/rouge/js/components/CheckRadioPicker.vue");
+/* harmony import */ var _components_Field__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/components/Field */ "./themes/rouge/js/components/Field.vue");
+/* harmony import */ var _components_Control__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/components/Control */ "./themes/rouge/js/components/Control.vue");
+/* harmony import */ var _components_Divider_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/components/Divider.vue */ "./themes/rouge/js/components/Divider.vue");
+/* harmony import */ var _components_JbButton__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/components/JbButton */ "./themes/rouge/js/components/JbButton.vue");
+/* harmony import */ var _components_JbButtons__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/components/JbButtons */ "./themes/rouge/js/components/JbButtons.vue");
+
 
 
 
@@ -1604,32 +1617,48 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'CategoryCreate',
   components: {
-    FullScreenSection: _components_FullScreenSection__WEBPACK_IMPORTED_MODULE_1__["default"],
-    CardComponent: _components_CardComponent__WEBPACK_IMPORTED_MODULE_2__["default"],
-    CheckRadioPicker: _components_CheckRadioPicker__WEBPACK_IMPORTED_MODULE_3__["default"],
-    Field: _components_Field__WEBPACK_IMPORTED_MODULE_4__["default"],
-    Control: _components_Control__WEBPACK_IMPORTED_MODULE_5__["default"],
-    Divider: _components_Divider_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
-    JbButton: _components_JbButton__WEBPACK_IMPORTED_MODULE_7__["default"],
-    JbButtons: _components_JbButtons__WEBPACK_IMPORTED_MODULE_8__["default"]
+    FullScreenSection: _components_FullScreenSection__WEBPACK_IMPORTED_MODULE_2__["default"],
+    CardComponent: _components_CardComponent__WEBPACK_IMPORTED_MODULE_3__["default"],
+    CheckRadioPicker: _components_CheckRadioPicker__WEBPACK_IMPORTED_MODULE_4__["default"],
+    Field: _components_Field__WEBPACK_IMPORTED_MODULE_5__["default"],
+    Control: _components_Control__WEBPACK_IMPORTED_MODULE_6__["default"],
+    Divider: _components_Divider_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
+    JbButton: _components_JbButton__WEBPACK_IMPORTED_MODULE_8__["default"],
+    JbButtons: _components_JbButtons__WEBPACK_IMPORTED_MODULE_9__["default"]
   },
   setup: function setup() {
-    var store = (0,vuex__WEBPACK_IMPORTED_MODULE_9__.useStore)();
+    var store = (0,vuex__WEBPACK_IMPORTED_MODULE_10__.useStore)();
     var form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
       categoryName: '',
-      location: '',
-      status: ''
+      description: '',
+      booking_type: '',
+      billing_strategy: '',
+      job_type: '',
+      cancellation_fees: '',
+      minimum_fee: '',
+      maximum_fee: '',
+      visitation_fees: '',
+      hourly_rate_fee: '',
+      consulation: '',
+      status: '',
+      banner_web: '',
+      banner_mobile: '',
+      selected_state_icon: '',
+      un_selected_state_icon: ''
     });
     var error = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)('');
-    var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_10__.useRouter)();
+    var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_11__.useRouter)();
 
-    var submit = function submit() {};
+    var submit = function submit() {//  const data = new FormData;
+      //  data.append()
+      // axios.
+    };
 
     return {
       form: form,
       submit: submit,
-      mdiAccount: _mdi_js__WEBPACK_IMPORTED_MODULE_11__.mdiAccount,
-      mdiAsterisk: _mdi_js__WEBPACK_IMPORTED_MODULE_11__.mdiAsterisk,
+      mdiAccount: _mdi_js__WEBPACK_IMPORTED_MODULE_12__.mdiAccount,
+      mdiAsterisk: _mdi_js__WEBPACK_IMPORTED_MODULE_12__.mdiAsterisk,
       error: error
     };
   }
@@ -1672,7 +1701,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'CategoryCreate',
+  name: 'CategoryUpdate',
   components: {
     FullScreenSection: _components_FullScreenSection__WEBPACK_IMPORTED_MODULE_1__["default"],
     CardComponent: _components_CardComponent__WEBPACK_IMPORTED_MODULE_2__["default"],

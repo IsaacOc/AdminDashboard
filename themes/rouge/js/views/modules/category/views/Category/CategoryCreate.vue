@@ -118,6 +118,7 @@
 import { reactive, ref } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
+import axios from 'axios'
 import { mdiAccount, mdiAsterisk } from '@mdi/js'
 import FullScreenSection from '@/components/FullScreenSection'
 import CardComponent from '@/components/CardComponent'
@@ -145,8 +146,21 @@ export default {
 
     const form = reactive({
       categoryName: '',
-      location: '',
-      status: ''
+      description: '',
+      booking_type: '',
+      billing_strategy: '',
+      job_type: '',
+      cancellation_fees: '',
+      minimum_fee: '',
+      maximum_fee: '',
+      visitation_fees: '',
+      hourly_rate_fee: '',
+      consulation: '',
+      status: '',
+      banner_web: '',
+      banner_mobile: '',
+      selected_state_icon: '',
+      un_selected_state_icon: '',
     })
 
     const error = ref('')
@@ -154,7 +168,9 @@ export default {
     const router = useRouter()
 
     const submit = () => {
-      
+      //  const data = new FormData;
+      //  data.append()
+      // axios.
     }
 
     return {

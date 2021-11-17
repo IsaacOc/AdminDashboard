@@ -18,7 +18,7 @@ import store from './store'
 
 import '../css/main.css'
 
-axios.defaults.baseURL = 'http://localhost:8000'
+axios.defaults.baseURL = 'http://127.0.0.4'
 
 /* Fetch sample data */
 store.dispatch('fetch', 'clients')

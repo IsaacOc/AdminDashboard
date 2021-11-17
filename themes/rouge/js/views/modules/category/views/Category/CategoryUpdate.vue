@@ -129,7 +129,7 @@ import JbButton from '@/components/JbButton'
 import JbButtons from '@/components/JbButtons'
 
 export default {
-  name: 'CategoryCreate',
+  name: 'CategoryUpdate',
   components: {
     FullScreenSection,
     CardComponent,
