@@ -1,7 +1,7 @@
 <template>
-  <div bg="login container mx-auto">
-     <div class="register w-90">
-         <card-component class="test register rounded border card" @submit.prevent="submit" form>
+  <div bg="login register mx-auto">
+     <div class="w-80">
+         <card-component class="w-full rounded border card" @submit.prevent="submit" form>
             <div class="alert alert-danger px-auto py-2" v-if="error.length !== 0">
             {{error}}  
             </div>
@@ -104,7 +104,7 @@ export default {
 }
 </script>
 <style>
-.test {
-   background: black !important;
+.register {
+   max-width: 700px;
 }
 </style>

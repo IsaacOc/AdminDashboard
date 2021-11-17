@@ -25,6 +25,17 @@ export default [
         meta: {
             requiresAuth: true,
         },
+        path: "/category/:id",
+        name: "SingleCategory",
+        component: () =>
+            import(
+                /* webpackChunkName: "modules" */ "./views/Category/SingleCategory"
+            ),
+    },
+    {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/sub-category/create",
         name: "SubCategoryCreate",
         component: () =>

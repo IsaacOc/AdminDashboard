@@ -9,9 +9,11 @@
             has-table
         >
             <div class="dflex mb-2 mt-2 bg-white border border-gray-100 dark:bg-gray-900 dark:border-gray-900">
+                <router-link to="/sub-category/create" class="" type="button">Add A Sub Category</router-link>
                 <jb-button to="/sub-category/create" color="primary" outline label="+ Add a Category" />
             </div>
-
+            
+            
             <clients-table checkable />
         </card-component>
     </main-section>

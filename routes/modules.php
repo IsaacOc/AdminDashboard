@@ -17,3 +17,7 @@ Route::group([], base_path('app/Modules/SubCategory/routes/api.php'));
 Route::get('/modules', function () {
     return response()->json(['modules']);
 });
+
+Route::get('/', function() {
+    return view('welcome');
+});
