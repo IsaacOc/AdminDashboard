@@ -23,23 +23,23 @@ class SubCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        return response()->json($this->validateRequest());
-        // $subCategory = new SubCategory;
+        // return response()->json($this->validateRequest());
+        $subCategory = new SubCategory;
 
-        // // which means there should be a certain category before creating sub category
-        // $subCategory->category_id = $this->validateRequest()['category_id'];
-        // $subCategory->sub_category_name = $this->validateRequest()['sub_category_name'];
-        // $subCategory->sub_category_description = $this->validateRequest()['sub_category_description'];
-        // $subCategory->status = $this->validateRequest()['status'];
-        // $subCategory->banner_image = $this->storeBannerImage();
-        // $subCategory->selected_state_icon = $this->storeSelectedStateIcon();
-        // $subCategory->unselected_state_icon = $this->storeUnselectedStateIcon();
-        // $subCategory->save();
+        // which means there should be a certain category before creating sub category
+        $subCategory->category_id = $this->validateRequest()['category_id'];
+        $subCategory->sub_category_name = $this->validateRequest()['sub_category_name'];
+        $subCategory->sub_category_description = $this->validateRequest()['sub_category_description'];
+        $subCategory->status = $this->validateRequest()['status'];
+        $subCategory->banner_image = $this->storeBannerImage();
+        $subCategory->selected_state_icon = $this->storeSelectedStateIcon();
+        $subCategory->unselected_state_icon = $this->storeUnselectedStateIcon();
+        $subCategory->save();
         
-        // return response()->json([
-        //     'business group' => $subCategory,
-        //     'message' => $subCategory ? 'Sub Category Created' : 'Error Creating Sub Category'
-        // ]);
+        return response()->json([
+            'sub category' => $subCategory,
+            'message' => $subCategory ? 'Sub Category Created' : 'Error Creating Sub Category'
+        ]);
     }
 
     /**

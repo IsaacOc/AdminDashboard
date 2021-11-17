@@ -17,4 +17,5 @@ Route::prefix('api/admin/sub-category')->group(function() {
    Route::get('/', [SubCategoryController::class, 'index']);
    Route::get('/{subCategoryId}', [SubCategoryController::class, 'show']);
    Route::post('/', [SubCategoryController::class, 'store']);
+   Route::delete('/{subCategoryId}', [SubCategoryController::class, 'destroy']);
 });

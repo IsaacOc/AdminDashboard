@@ -18,6 +18,7 @@ Route::prefix('api/admin/category')->group(function() {
    //    Route::post('/logout', [AdminController::class, 'logout']);
    // });
    Route::get('/', [CategoryController::class, 'index']);
-   Route::get('/{category}', [CategoryController::class, 'show']);
+   Route::get('/{categoryId}', [CategoryController::class, 'show']);
    Route::post('/', [CategoryController::class, 'store']);
+   Route::delete('/{categoryId}', [CategoryController::class, 'destroy']);
 });
