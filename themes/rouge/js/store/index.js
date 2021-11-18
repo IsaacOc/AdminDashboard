@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 import axios from 'axios'
 import auth from './Auth'
 import category from './Category'
+import subCategory from './SubCategory'
 
 export default createStore({
   state: {
@@ -9,6 +10,8 @@ export default createStore({
     userName: null,
     userEmail: null,
     userAvatar: null,
+    loggedIn: true ? localStorage.getItem('rouge_token') !== null || undefined : false,
+    token: localStorage.getItem('rouge_token') || null,
 
     /* fullScreen - fullscreen form layout (e.g. login page) */
     isFullScreen: false,
@@ -27,6 +30,16 @@ export default createStore({
     clients: [],
     history: []
   },
+
+  getters: {
+    loggedIn: state => {
+      return state.loggedIn
+    },
+    token: state => {
+      return state.token
+    },
+  },
+  
   mutations: {
     /* A fit-them-all commit */
     basic (state, payload) {
@@ -107,6 +120,7 @@ export default createStore({
   },
   modules: {
     auth,
-    category
+    category,
+    subCategory,
   }
 })

@@ -2,41 +2,34 @@ import axios from 'axios'
 
 export default {
    state: {
-      loggedIn: true ? localStorage.getItem('rouge_token') !== null || undefined : false,
-      token: localStorage.getItem('rouge_token') || null,
+      // loggedIn: true ? localStorage.getItem('rouge_token') !== null || undefined : false,
+      // token: localStorage.getItem('rouge_token') || null,
       auth_error: null,
       user: null,
    },
 
    getters: {
-      loggedIn: state => {
-         return state.loggedIn
-      },
-      token: state => {
-         return state.token
-      },
       user: state => {
          return state.user
       }
    },
 
    mutations: {
-      LOGGEDIN ( state, payload ) {
-         axios.defaults.headers.common['Authorization'] = 'Bearer ' + payload
-         return state.loggedIn = true
-      },
+      // LOGGEDIN ( state, payload ) {
+      //    return state.loggedIn = true
+      // },
 
       USER ( state, payload) {
          return state.user = payload
       },
 
-      LOGGEDOUT( state ) {
-         return state.loggedIn = false
-      },
+      // LOGGEDOUT( state ) {
+      //    return state.loggedIn = false
+      // },
 
-      REGISTERED( state, payload ) {
-         return state.loggedIn = true
-      },
+      // REGISTERED( state, payload ) {
+      //    return state.loggedIn = true
+      // },
 
       AUTH_ERROR(state, payload) {
          return state.auth_error = payload
@@ -52,7 +45,7 @@ export default {
                   console.log(res.data)
                   const token = res.data.token
                   localStorage.setItem('rouge_token', token)
-                  commit('LOGGEDIN', token)
+                  // commit('LOGGEDIN', token)
                   resolve(res)
                })
                .catch(err => {
@@ -68,7 +61,7 @@ export default {
             axios.post('/api/admin/register', { firstname, lastname, email, phone, password, isAdmin }, { headers: {'Content-type': 'application/json' } })
                .then(res => {
                   console.log(res.data)
-                  commit('REGISTERED', res.data.token)
+                  // commit('REGISTERED', res.data.token)
                   resolve(res)
                })
                .catch(err => {
@@ -79,7 +72,7 @@ export default {
       },
 
       fetchAuthenticatedUser(context) {
-         axios.defaults.headers.common['Authorization'] = 'Bearer ' + context.state.token
+         axios.defaults.headers.common['Authorization'] = 'Bearer ' + context.rootState.token
          axios.get('/api/admin/user')
             .then(res => {
                console.log(res.data)
@@ -91,14 +84,14 @@ export default {
       },
 
       logout(context) {
-         if(context.getters.loggedIn) {
+         axios.defaults.headers.common['Authorization'] = 'Bearer ' + context.rootState.token
             console.log('logout')
             return new Promise((resolve, reject) => {
                axios.post('/api/admin/logout')
                   .then(res => {
                      console.log(res.data)
                      localStorage.removeItem('rouge_token')
-                     context.commit('LOGGEDOUT')
+                     // context.commit('LOGGEDOUT')
                      resolve(res)
                   })
                   .catch(err => {
@@ -106,10 +99,6 @@ export default {
                      reject(err)
                   })
             })
-         } else {
-            console.log('Un Authorized')
-            context.commit('AUTH_ERROR', 'Un authorized')
-         }
       },
    }
 }

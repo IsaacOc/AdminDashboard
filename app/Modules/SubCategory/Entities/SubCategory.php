@@ -13,7 +13,7 @@ class SubCategory extends Model
 
     protected $fillable = [
         'category_id','sub_category_name','sub_category_description',
-        'banner_image','selected_state_icon','unselected_state_icon', 'status'
+        'banner_image', 'status'
     ];
 
     public function category() {

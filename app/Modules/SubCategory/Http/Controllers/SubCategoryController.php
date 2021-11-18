@@ -32,8 +32,6 @@ class SubCategoryController extends Controller
         $subCategory->sub_category_description = $this->validateRequest()['sub_category_description'];
         $subCategory->status = $this->validateRequest()['status'];
         $subCategory->banner_image = $this->storeBannerImage();
-        $subCategory->selected_state_icon = $this->storeSelectedStateIcon();
-        $subCategory->unselected_state_icon = $this->storeUnselectedStateIcon();
         $subCategory->save();
         
         return response()->json([
@@ -74,13 +72,11 @@ class SubCategoryController extends Controller
         $updatedSubCategory->sub_category_name = $this->validateRequest()['sub_category_name'];
         $updatedSubCategory->sub_category_description = $this->validateRequest()['sub_category_description'];
         $updatedSubCategory->status = $this->validateRequest()['status'];
-        $updatedSubCategory->bannerImage = $this->storeBannerImage();
-        $updatedSubCategory->selected_state_icon = $this->storeSelectedStateIcon();
-        $updatedSubCategory->unselected_state_icon = $this->storeUnselectedStateIcon();
+        $updatedSubCategory->banner_image = $this->storeBannerImage();
         $updatedSubCategory->save();
         
         return response()->json([
-            'business group' => $updatedSubCategory,
+            'sub category' => $updatedSubCategory,
             'message' => $updatedSubCategory ? 'Sub Category Updated' : 'Error Updating Sub Category'
         ]);
     }
@@ -121,37 +117,6 @@ class SubCategoryController extends Controller
         }
     }
 
-    public function storeSelectedStateIcon()
-    {
-        if (request()->hasFile('selected_state_icon')) {
-
-            request()->validate([
-                'image' => 'image|mimes:jpeg,jpg,svg,png'
-            ]);
-            $selectedStateIcon = time().".".request()->file('selected_state_icon')->getClientOriginalName();
-            request()->file('selected_state_icon')
-                ->move(public_path('uploads/sub_category/selected_state_icon'), $selectedStateIcon);
-            
-            return $selectedStateIcon;
-        }
-    }
-
-    public function storeUnselectedStateIcon()
-    {
-        if (request()->hasFile('unselected_state_icon')) {
-
-            request()->validate([
-                'unselected_state_icon' => 'image|mimes:png,jpg,svg,jpeg'
-            ]);
-
-            $unselectedStateIcon = time().".".request()->file('unselected_state_icon')->getClientOriginalName();
-            request()->file('unselected_state_icon')
-                ->move(public_path('uploads/sub_category/unselected_state_icon'), $unselectedStateIcon);
-            
-            return $unselectedStateIcon;
-        }
-    }
-
     public function validateRequest()
     {
         return request()->validate([
@@ -159,8 +124,6 @@ class SubCategoryController extends Controller
             'sub_category_name' => 'required',
             'sub_category_description' => 'required',
             'banner_image' => '',
-            'selected_state_icon' => '',
-            'unselected_state_icon' => '', 
             'status' => ''
         ]);
     }

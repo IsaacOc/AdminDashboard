@@ -20,37 +20,38 @@
             <label class="block text-gray-700 text-sm font-bold mb-2" for="sub_category_name">
             Sub Category Name
             </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="sub_category_name" type="text" placeholder="Sub Category Name">
+            <input v-model="form.sub_category_name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="sub_category_name" type="text" placeholder="Sub Category Name">
          </div>
          <div class="mb-2">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="sub_category_description">
             Sub Category Description
             </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="sub_category_description" type="text" placeholder="Sub Category Description">
+            <input v-model="form.sub_category_description" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="sub_category_description" type="text" placeholder="Sub Category Description">
          </div>
          <div class="mb-2">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="status">
             Status
             </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="status" type="text" placeholder="status">
+            <input v-model="form.status" :class="inputElClass" id="status" type="text" placeholder="status">
          </div>
          <div class="mb-2">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="banner_image">
-            Banner Image
+               Banner Image
             </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="banner_image" type="file">
-         </div>
-         <div class="mb-2">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="selected_state_icon">
-            Selected State Icon
-            </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="selected_state_icon" type="file">
-         </div>
-         <div class="mb-2">
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="un_selected_state_icon">
-            Un Selected State Icon
-            </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="un_selected_state_icon" type="file">
+            <input type="file" name="banner_image" ref="banner_image" hidden @change="handleBannerImageChange" />
+         <div class="photoPreview bg-light m-1" @click="$refs.banner_image.click()">
+                <div v-if="form.bannerImage">
+                  <img
+                    :src="form.bannerImage"
+                    alt="Banner Image"
+                    style="height: 100px; width: 150px"
+                  />
+                </div>
+                <div class="flex flex-col justify center shadow appearance-none border rounded w-50 text-gray-700 leading-tight" style="height: 100px; width: 150px" v-else>
+                  <p>Add Banner Image</p>
+                  <p class="font-xl font-bold">+</p>
+                </div>
+              </div>
          </div>
          <div class="flex justify-center">
             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
@@ -93,13 +94,12 @@ export default {
     const store = useStore()
 
     const form = reactive({
-      category_id: 'Choose the Parent Category',
+      category_id: '',
       sub_category_name: '',
       sub_category_description: '',
       status: '',
       banner_image: '',
-      selected_state_icon: '',
-      un_selected_state_icon: ''
+      bannerImage: ''
     })
 
    const error = ref('')
@@ -110,28 +110,51 @@ export default {
       console.log('mounted')
       store.dispatch('fetchAllCategories')
    })
+
+   const handleBannerImageChange = (e) => {
+      console.log(form)
+      form.banner_image = e.target.files[0];
+      let bannerImageReader = new FileReader();
+      bannerImageReader.readAsDataURL(form.banner_image);
+      bannerImageReader.onload = (e) => {
+         form.bannerImage = e.target.result;
+      };
+   }
+
    const categories = computed(() => { return store.getters.categories})
 
    const submit = () => {
-      const data = new FormData
-      data.append('category_id', form.category_id),
+      console.log(form)
+      const data = new FormData;
+      data.append('category_id', parseInt(form.category_id)),
       data.append('sub_category_name', form.sub_category_name),
       data.append('sub_category_description', form.sub_category_description),
       data.append('status', form.status),
       data.append('banner_image', form.banner_image),
-      data.append('selected_state_icon', form.selected_state_icon),
-      data.append('un_selected_state_icon', form.un_selected_state_icon)
       axios.post('/api/admin/sub-category', data)
          .then(res => {
-            console.log(res.data)
+            console.log(res)
+            router.push('/sub-category')
          })
          .catch(err => {
+            error.value = err.message
             console.log(err)
          })
       // console.log(form)
-   }
+    }
+
+   const inputElClass = computed(() => {
+      const base = [
+         'px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full',
+         'dark:placeholder-gray-400', 'bg-white dark:bg-gray-800',
+      ]
+
+      return base
+   })
 
     return {
+       inputElClass,
+       handleBannerImageChange,
       form,
       submit,
       mdiAccount,

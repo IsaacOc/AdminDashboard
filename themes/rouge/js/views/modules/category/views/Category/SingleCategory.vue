@@ -3,7 +3,7 @@
 
     <main-section>
         <card-component
-            class="mb-6 w-full"
+            class="mb-6 container mx-auto"
             title="Category"
             has-table
         >
@@ -14,16 +14,15 @@
                 </jb-buttons>
             </div>
 
-            <div class="bg-white m-4 p-2 w-60 mx-auto" v-if="category != null">
+            <div class="bg-white m-4 p-2 w-80 mx-auto" v-if="category != null">
                <h5 class="mb-4">Name: {{category.category_name}}</h5>
                <h5 class="mb-4">Description: {{category.description}}</h5>
-               <h5 class="mb-4">Billing Strategy: {{category.billing_strategy}}</h5>
                <h5 class="mb-4">Job Type: {{category.job_type}}</h5>
-               <h5 class="mb-4">Cancellation Fees: {{category.cancellation_fees}}</h5>
                <h5 class="mb-4">Visitation Fees: {{category.visitation_fees}}</h5>
                <h5 class="mb-4">Maximum Fee: {{category.maximum_fee}}</h5>
                <h5 class="mb-4">Minimum Fees: {{category.minimum_fee}}</h5>
-               <h5 class="mb-4">Consulattion Fees: {{category.consulation_fees}}</h5>
+                <img :src="`/uploads/sub_category/banner_image/${category.banner_web}`" alt="image" style="height: 80px; width: 100px" />
+
             </div>
 
         </card-component>
@@ -55,7 +54,6 @@ export default {
          const route = useRoute()
 
         onMounted(() => {
-           console.log(route.params.id)
             store.dispatch('fetchACategory', {id: route.params.id})
         })
 

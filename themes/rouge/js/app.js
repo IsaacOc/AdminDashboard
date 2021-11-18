@@ -42,25 +42,16 @@ router.beforeEach(to => {
 /* Router Navigation Guard */
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth )) {
-    // if (!store.getters.loggedIn) {
-    //   next({
-    //     path: '/login',
-    //     // query: { redirectFrom: to.fullPath }
+    if (!store.getters.loggedIn) {
+      next({
+        path: '/login',
+        // query: { redirectFrom: to.fullPath }
     
-    //   })
-    // } else {
-    //   if(to.fullPath == '/login') {
-    //     return
-    //   } else {
-    //     next()
-    //   }
-    // }
-    if(!store.getters.loggedIn) {
-      next({path: '/login'})
-    } else if((to.fullPath == ('/login' || '/register')) && (store.getters.loggedIn)) {
-      next({ path: '/' })
+      })
     } else {
-      next()
+      if(to.fullPath != '/login' || 'register') {
+        next()
+      }
     }
   } else {
     next()

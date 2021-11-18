@@ -1,6 +1,6 @@
 <template>
   <div bg="login register mx-auto">
-     <div class="w-80">
+     <div class="w-80 p-3">
          <card-component class="w-full rounded border card" @submit.prevent="submit" form>
             <div class="alert alert-danger px-auto py-2" v-if="error.length !== 0">
             {{error}}  
@@ -105,6 +105,7 @@ export default {
 </script>
 <style>
 .register {
-   max-width: 700px;
+  min-width: 650px;
+  max-width: 700px;
 }
 </style>

@@ -31,18 +31,12 @@ class CategoryController extends Controller
         $category->category_name = $this->validateRequest()['category_name'];
         $category->description = $this->validateRequest()['description'];
         // $category->business_group_id = $this->validateRequest()['business_group_id'];
-        $category->booking_type = $this->validateRequest()['booking_type'];
-        $category->billing_strategy = $this->validateRequest()['billing_strategy'];
         $category->job_type = $this->validateRequest()['job_type'];
-        $category->cancellation_fees = $this->validateRequest()['cancellation_fees'];
-        $category->visitation_fee = $this->validateRequest()['visitation_fee'];
+        $category->hourly_rate_fee = $this->validateRequest()['hourly_rate_fee'];
         $category->minimum_fee = $this->validateRequest()['minimum_fee'];
         $category->maximum_fee = $this->validateRequest()['maximum_fee'];
         $category->status = $this->validateRequest()['status'];
-        $category->banner_web = $this->storeBannerWeb();
-        $category->banner_mobile = $this->storeBannerMobile();
-        $category->selected_state_icon = $this->storeSelectedStateIcon();
-        $category->un_selected_state_icon = $this->storeUnselectedStateIcon();
+        $category->banner_web = $this->storeBannerImage();
 
         $category->save();
         
@@ -101,18 +95,12 @@ class CategoryController extends Controller
         $category->category_name = $this->validateRequest()['category_name'];
         $category->description = $this->validateRequest()['description'];
         // $category->business_group_id = $this->validateRequest()['business_group_id'];
-        $category->booking_type = $this->validateRequest()['booking_type'];
-        $category->billing_strategy = $this->validateRequest()['billing_strategy'];
         $category->job_type = $this->validateRequest()['job_type'];
-        $category->cancellation_fees = $this->validateRequest()['cancellation_fees'];
-        $category->visitation_fee = $this->validateRequest()['visitation_fee'];
+        $category->hourly_rate_fee = $this->validateRequest()['hourly_rate_fee'];
         $category->minimum_fee = $this->validateRequest()['minimum_fee'];
-        $category->maximum_fee = $this->validateRequest()['business_group_id'];
+        $category->maximum_fee = $this->validateRequest()['maximum_fee'];
         $category->status = $this->validateRequest()['status'];
-        $category->banner_web = $this->storeBannerWeb();
-        $category->banner_mobile = $this->storeBannerMobile();
-        $category->selected_state_icon = $this->storeSelectedStateIcon();
-        $category->un_selected_state_icon = $this->storeUnselectedStateIcon();
+        $category->banner_web = $this->storeBannerImage();
 
         $category->save();
         
@@ -149,22 +137,19 @@ class CategoryController extends Controller
         return request()->validate([
             'category_name' => 'required',
             'description' => 'required',
-            'booking_type' => 'required',
-            'billing_strategy' => 'required',
             'job_type' => 'required',
-            'cancellation_fees' => '',
-            'consultation_fees' => '',
-            'visitation_fee' => '',
             'hourly_rate_fee' => '',
             'minimum_fee' => '',
             'maximum_fee' => '',
-            'banner_web' => '',
-            'banner_mobile' => '',
+            'banner_image' => '',
             'status' => '',
-            'selected_state_icon' => '',
-            'un_selected_state_icon' => '',
             ]);
             // 'business_group_id' => 'required',
+            // 'booking_type' => 'required',
+            // 'billing_strategy' => 'required',
+            // 'cancellation_fees' => '',
+            // 'consultation_fees' => '',
+            // 'visitation_fee' => '',
             // 'city_id' => 'required'
     }
 
@@ -172,17 +157,17 @@ class CategoryController extends Controller
     /**
      * Store the Web Banner from here and return the name to store in the database.
      */
-    public function storeBannerWeb()
+    public function storeBannerImage()
     {
-        if (request()->hasFile('banner_web')) {
+        if (request()->hasFile('banner_image')) {
 
             request()->validate([
-                'banner_web' => 'image|mimes:jpeg,jpg'
+                'banner_image' => 'image|mimes:jpeg,jpg'
             ]);
 
-            $bannerWeb = time().".".request()->file('banner_web')->getClientOriginalName();
-            request()->file('banner_web')->move(public_path('uploads/sub_category/banner_web'), $bannerWeb);
-            return $bannerWeb;
+            $bannerImage = time().".".request()->file('banner_image')->getClientOriginalName();
+            request()->file('banner_image')->move(public_path('uploads/sub_category/banner_image'), $bannerImage);
+            return $bannerImage;
 
         }
     }

@@ -8,19 +8,18 @@
             :icon="mdiAccountMultiple"
             has-table
         >
-            <div class="flex justify-right ml-auto mb-2 mt-2 bg-white border border-gray-100 dark:bg-gray-900 dark:border-gray-900">
-                <router-link to="/category/create" class="" type="button">Add A Category</router-link>
-                <jb-buttons type="justify-start lg:justify-end" no-wrap>
+            <div class="flex justify-right ml-auto mb-2 mt-2 bg-white dark:bg-gray-900 dark:border-gray-900">
+                <jb-buttons type="justify-end lg:justify-end">
                     <jb-button to="/category/create" color="primary" type="button" outline label="+ Add a Category" />
                 </jb-buttons>
             </div>
             <table>
                 <thead>
                     <tr>
-                        <th>Category Banner</th>
                         <th>Category Name</th>
-                        <th>Visitation Fees</th>
+                        <th>Description</th>
                         <th>Maximum Fee</th>
+                        <th>Category Banner</th>
                         <th></th>
                         <th></th>
                         <th></th>
@@ -28,17 +27,17 @@
                 </thead>
                 <tbody>
                     <tr v-for="category in categories" :key="category.id">
-                        <td >
-                            <img src="" alt="image" />
-                        </td>
                         <td >{{ category.category_name }}</td>
-                        <td >{{ category.visitation_fee }}</td>
+                        <td >{{ category.description }}</td>
                         <td >{{ category.maximum_fee }}</td>
+                        <td >
+                            <img :src="`/uploads/sub_category/banner_image/${category.banner_web}`" alt="image" style="height: 80px; width: 100px" />
+                        </td>
                         <td>
-                                <button class="" @click="deleteCategory(category.id)" type="button">Delete</button>
                             <jb-buttons type="justify-start lg:justify-end" no-wrap>
                                 <jb-button type="button" :to="`/category/${category.id}`" class="mr-3" color="success" :icon="mdiEye" small />
-                                <!-- <jb-button color="danger" :icon="mdiTrashCan" small  @click="deleteCategory" type="button"/> -->
+                                <jb-button type="button" :to="`/category/update/${category.id}`" class="mr-3" color="primary" :icon="mdiPencil" small />
+                                <jb-button color="danger" :icon="mdiTrashCan" small  @click="deleteCategory" type="button"/>
                             </jb-buttons>
                         </td>
                     </tr>
@@ -55,7 +54,7 @@ import {useStore} from 'vuex'
 import MainSection from "./MainSection";
 import HeroBar from "./HeroBar";
 import CardComponent from "./CardComponent";
-import { mdiAccountMultiple, mdiEye, mdiTrashCan } from '@mdi/js'
+import { mdiAccountMultiple, mdiEye, mdiTrashCan, mdiPencil } from '@mdi/js'
 import JbButtons from '@/components/JbButtons'
 import JbButton from '@/components/JbButton'
 
@@ -68,6 +67,7 @@ export default {
         HeroBar,
         mdiAccountMultiple,
         mdiEye, 
+        mdiPencil,
         mdiTrashCan, 
         JbButtons, 
         JbButton
@@ -84,16 +84,17 @@ export default {
         const categories = computed(() => { return store.getters.categories})
 
         const deleteCategory = (id) => {
-            console.log(id)
-            store.dispatch('deleteCategory', {id: id})
+            store.dispatch('deleteCategory', id)
         }
         return {
             categories,
             mdiEye,
             mdiTrashCan,
             mdiAccountMultiple,
+            mdiPencil,
             JbButtons, 
             JbButton,
+            deleteCategory
         }
     }
 };

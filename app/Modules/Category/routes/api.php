@@ -20,5 +20,6 @@ Route::prefix('api/admin/category')->group(function() {
    Route::get('/', [CategoryController::class, 'index']);
    Route::get('/{categoryId}', [CategoryController::class, 'show']);
    Route::post('/', [CategoryController::class, 'store']);
+   Route::put('/{categoryId}', [CategoryController::class, 'update']);
    Route::delete('/{categoryId}', [CategoryController::class, 'destroy']);
 });

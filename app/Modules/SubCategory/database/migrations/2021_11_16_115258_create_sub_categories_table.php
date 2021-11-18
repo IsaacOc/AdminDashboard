@@ -19,8 +19,6 @@ class CreateSubCategoriesTable extends Migration
             $table->string('sub_category_name');
             $table->text('sub_category_description');
             $table->string('banner_image', 255)->nullable();
-            $table->string('selected_state_icon', 255)->nullable();
-            $table->string('unselected_state_icon', 255)->nullable();
             $table->integer('status')->nullable();
             $table->timestamps();
         });

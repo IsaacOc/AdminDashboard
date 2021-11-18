@@ -36,6 +36,17 @@ export default [
         meta: {
             requiresAuth: true,
         },
+        path: "/sub-category/:id",
+        name: "SingleSubCategory",
+        component: () =>
+            import(
+                /* webpackChunkName: "modules" */ "./views/SubCategory/SingleSubCategory"
+            ),
+    },
+    {
+        meta: {
+            requiresAuth: true,
+        },
         path: "/sub-category/create",
         name: "SubCategoryCreate",
         component: () =>
@@ -47,7 +58,7 @@ export default [
         meta: {
             requiresAuth: true,
         },
-        path: "/category/update",
+        path: "/category/update/:id",
         name: "CategoryUpdate",
         component: () =>
             import(
@@ -58,7 +69,7 @@ export default [
         meta: {
             requiresAuth: true,
         },
-        path: "/sub-category/update",
+        path: "/sub-category/update/:id",
         name: "SubCategoryUpdate",
         component: () =>
             import(

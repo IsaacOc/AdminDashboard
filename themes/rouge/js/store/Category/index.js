@@ -23,7 +23,7 @@ export default {
          return state.category = payload
       },
       DELETEDCATEGORY (state, payload) {
-         return state.categories.filter(c => c.id != payload)
+         return state.categories = state.categories.filter(c => c.id != payload)
       }
    },
 
@@ -47,8 +47,9 @@ export default {
       },
 
       fetchAuthenticatedUser(context) {
-         axios.defaults.headers.common['Authorization'] = 'Bearer ' + context.state.token
-         axios.get('/api/admin/user')
+         console.log(context.rootState.token)
+         axios.defaults.headers.common['Authorization'] = 'Bearer ' + context.rootState.token
+         axios.get('/api/admin/user', {headers: { 'Authorization': 'Bearer ' + context.rootState.token}})
             .then(res => {
                console.log(res.data)
                context.commit('USER', res.data)
@@ -70,24 +71,28 @@ export default {
       },
 
       fetchACategory(context, {id}) {
-         axios.defaults.headers.common['Authorization'] = 'Bearer ' + context.state.token
+         axios.defaults.headers.common['Authorization'] = 'Bearer ' + context.rootState.token
          console.log('category', 'id', id)
-         axios.get('/api/admin/category/' + id)
-            .then(res => {
-               console.log(res.data)
-               context.commit('CATEGORY', res.data)
-            })
-            .catch(err => {
-               console.log(err.message)
-            })
+         return new Promise((resolve, reject) => {
+            axios.get('/api/admin/category/' + id)
+               .then(res => {
+                  console.log(res.data)
+                  context.commit('CATEGORY', res.data)
+                  resolve(res)
+               })
+               .catch(err => {
+                  console.log(err.message)
+                  reject(err)
+               })
+         })
       },
-      deleteCategory(context, {id}) {
-         axios.defaults.headers.common['Authorization'] = 'Bearer ' + context.state.token
-         console.log('category Delete', 'id', id)
-         axios.delete('/api/admin/category/' + id)
+      deleteCategory(context, payload) {
+         axios.defaults.headers.common['Authorization'] = 'Bearer ' + context.rootState.token
+         console.log('category Delete', 'id', payload)
+         axios.delete('/api/admin/category/' + payload)
             .then(res => {
                console.log(res.data)
-               context.commit('DELETEDCATEGORY', id)
+               context.commit('DELETEDCATEGORY', payload)
             })
             .catch(err => {
                console.log(err.message)
