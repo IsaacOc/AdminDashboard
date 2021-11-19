@@ -31,12 +31,13 @@ class CategoryController extends Controller
         $category->category_name = $this->validateRequest()['category_name'];
         $category->description = $this->validateRequest()['description'];
         // $category->business_group_id = $this->validateRequest()['business_group_id'];
-        $category->job_type = $this->validateRequest()['job_type'];
-        $category->hourly_rate_fee = $this->validateRequest()['hourly_rate_fee'];
-        $category->minimum_fee = $this->validateRequest()['minimum_fee'];
-        $category->maximum_fee = $this->validateRequest()['maximum_fee'];
+        $category->location = $this->validateRequest()['location'];
+        $category->banner_image = $this->storeBannerImage();
+        $category->image_text = $this->validateRequest()['image_text'];
         $category->status = $this->validateRequest()['status'];
-        $category->banner_web = $this->storeBannerImage();
+        $category->usergroup = $this->validateRequest()['usergroup'];
+        $category->position = $this->validateRequest()['position'];
+        $category->creation_date = $this->validateRequest()['creation_date'];
 
         $category->save();
         
@@ -52,14 +53,13 @@ class CategoryController extends Controller
      */
     public function show($categoryId)
     {
-        // return response()->json($categoryId);
-            $singleCategory = Category::where('id', $categoryId)->first();
+        $singleCategory = Category::where('id', $categoryId)->first();
             // return response()->json($singleCategory);
-            if($singleCategory) {
-                return response()->json($singleCategory);
-            } else {
-                return response()->json(['message' => 'No such Category']);
-            }
+        if($singleCategory) {
+            return response()->json($singleCategory);
+        } else {
+            return response()->json(['message' => 'No such Category']);
+        }
     }
 
     /**
@@ -71,7 +71,12 @@ class CategoryController extends Controller
         $category = Category::where('id', $categoryId)->first();
         
         if($category->count()) {
-            return response()->json($category->sub_categories()->orderBy('id', 'desc')->get());
+            $subcategories = $category->subcategories()->orderBy('id', 'desc')->get();
+            if($subcategories->count()) {
+                return response()->json($subcategories);
+            } else {
+                return response()->json(['message' => 'No sub categories found for this category']);
+            }
         } else {
             return response()->json(['message' => 'No such Category']);
         }
@@ -95,12 +100,13 @@ class CategoryController extends Controller
         $category->category_name = $this->validateRequest()['category_name'];
         $category->description = $this->validateRequest()['description'];
         // $category->business_group_id = $this->validateRequest()['business_group_id'];
-        $category->job_type = $this->validateRequest()['job_type'];
-        $category->hourly_rate_fee = $this->validateRequest()['hourly_rate_fee'];
-        $category->minimum_fee = $this->validateRequest()['minimum_fee'];
-        $category->maximum_fee = $this->validateRequest()['maximum_fee'];
+        $category->location = $this->validateRequest()['location'];
+        $category->banner_image = $this->storeBannerImage();
+        $category->image_text = $this->validateRequest()['image_text'];
         $category->status = $this->validateRequest()['status'];
-        $category->banner_web = $this->storeBannerImage();
+        $category->usergroup = $this->validateRequest()['usergroup'];
+        $category->position = $this->validateRequest()['position'];
+        $category->creation_date = $this->validateRequest()['creation_date'];
 
         $category->save();
         
@@ -137,19 +143,15 @@ class CategoryController extends Controller
         return request()->validate([
             'category_name' => 'required',
             'description' => 'required',
-            'job_type' => 'required',
-            'hourly_rate_fee' => '',
-            'minimum_fee' => '',
-            'maximum_fee' => '',
+            'location' => 'required',
+            'status' => 'required',
             'banner_image' => '',
-            'status' => '',
+            'image_text' => '',
+            'usergroup' => '',
+            'position' => '',
+            'creation_date' => '',
             ]);
             // 'business_group_id' => 'required',
-            // 'booking_type' => 'required',
-            // 'billing_strategy' => 'required',
-            // 'cancellation_fees' => '',
-            // 'consultation_fees' => '',
-            // 'visitation_fee' => '',
             // 'city_id' => 'required'
     }
 
@@ -166,62 +168,11 @@ class CategoryController extends Controller
             ]);
 
             $bannerImage = time().".".request()->file('banner_image')->getClientOriginalName();
-            request()->file('banner_image')->move(public_path('uploads/sub_category/banner_image'), $bannerImage);
+            request()->file('banner_image')->move(public_path('uploads/category/banner_image'), $bannerImage);
             return $bannerImage;
 
         }
     }
 
-
-    /**
-     * Store the Mobile Banner from here and return the name to store in the database.
-     */
-
-    public function storeBannerMobile()
-    {
-        if (request()->hasFile('banner_mobile')) {
-
-            request()->validate([
-                'image' => 'image|mimes:jpg,jpeg'
-            ]);
-
-           $bannerMobile = time().".".request()->file('banner_mobile')->getClientOriginalName();
-            request()->file('banner_mobile')->move(public_path('uploads/category/banner_mobile'), $bannerMobile);
-            return $bannerMobile;
-        }
-    }
-
-    // Function to return the selected state icon after its stored in uploads folder
-    public function storeSelectedStateIcon()
-    {
-        if (request()->hasFile('selected_state_icon')) {
-
-            request()->validate([
-                'image' => 'image|mimes:jpeg,jpg,svg,png'
-            ]);
-            $selectedStateIcon = time().".".request()->file('selected_state_icon')->getClientOriginalName();
-            request()->file('selected_state_icon')
-                ->move(public_path('uploads/category/selected_state_icon'), $selectedStateIcon);
-            
-            return $selectedStateIcon;
-        }
-    }
-
-    // Function to return the unselected state icon after its stored in uploads folder
-    public function storeUnselectedStateIcon()
-    {
-        if (request()->hasFile('un_selected_state_icon')) {
-
-            request()->validate([
-                'un_selected_state_icon' => 'image|mimes:png,jpg,svg,jpeg'
-            ]);
-
-            $unselectedStateIcon = time().".".request()->file('un_selected_state_icon')->getClientOriginalName();
-            request()->file('un_selected_state_icon')
-                ->move(public_path('uploads/category/un_selected_state_icon'), $unselectedStateIcon);
-            
-            return $unselectedStateIcon;
-        }
-    }
 }
 

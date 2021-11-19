@@ -12,11 +12,11 @@ class Category extends Model
     protected $table = 'categories';
 
     protected $fillable = [
-        'category_name', 'description', 'business_group_id', 'hourly_rate_fee', 
-        'minimum_fee', 'maximum_fee', 'banner_web', 'status', 'city_id'
+        'category_name', 'description', 'business_group_id', 'location', 
+        'image_text', 'creation_date', 'banner_image', 'status', 'usergroup', 'position'
     ];
 
-    public function sub_categories()
+    public function subcategories()
     {    
         return $this->hasMany(\App\Modules\SubCategory\Entities\SubCategory::class);
     }

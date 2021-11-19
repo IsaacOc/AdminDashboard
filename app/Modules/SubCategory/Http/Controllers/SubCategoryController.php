@@ -5,6 +5,7 @@ namespace App\Modules\SubCategory\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Modules\SubCategory\Entities\SubCategory;
+use App\Modules\Category\Entities\Category;
 
 class SubCategoryController extends Controller
 {
@@ -23,6 +24,7 @@ class SubCategoryController extends Controller
      */
     public function store(Request $request)
     {
+        
         // return response()->json($this->validateRequest());
         $subCategory = new SubCategory;
 
@@ -32,12 +34,19 @@ class SubCategoryController extends Controller
         $subCategory->sub_category_description = $this->validateRequest()['sub_category_description'];
         $subCategory->status = $this->validateRequest()['status'];
         $subCategory->banner_image = $this->storeBannerImage();
-        $subCategory->save();
+
+        $category = Category::where('id', '=', $this->validateRequest()['category_id'])->first();
+        if($category !== null) {
+            $subCategory->save();
+
+            return response()->json([
+                'sub category' => $subCategory,
+                'message' => $subCategory ? 'Sub Category Created' : 'Error Creating Sub Category'
+            ]);
+        } else {
+            return response()->json(['message' => 'Category doesnot exist, please select a category that exists']);
+        }
         
-        return response()->json([
-            'sub category' => $subCategory,
-            'message' => $subCategory ? 'Sub Category Created' : 'Error Creating Sub Category'
-        ]);
     }
 
     /**
