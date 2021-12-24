@@ -13,6 +13,9 @@ import logs from "../views/modules/logs";
 import category from "../views/modules/category";
 import ratings from "../views/modules/ratings";
 import Register from "../views/Register";
+import cities from "../views/modules/cities";
+import maps from "../views/modules/map";
+import orders from "../views/modules/order";
 
 const routes = [
     {
@@ -117,6 +120,9 @@ const routes = [
     ...logs.router,
     ...category.router,
     ...ratings.router,
+    ...cities.router,
+    ...maps.router,
+    ...orders.router
 ];
 
 const router = createRouter({
