@@ -165,7 +165,10 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Modules\Map\MapServiceProvider::class,
+        Modules\Cities\CityServiceProvider::class,
+        Modules\StoreFront\StoreFrontServiceProvider::class,
+        Modules\Customer\CustomerServiceProvider::class,
         /*
          * Application Service Providers...
          */
