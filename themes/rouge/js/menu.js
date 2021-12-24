@@ -12,7 +12,8 @@ import {
     mdiBallot,
     mdiArmFlex,
     mdiCogOutline,
-    mdiCloud
+    mdiCloud,
+    mdiStateMachine
 } from "@mdi/js";
 
 export default [
@@ -84,6 +85,25 @@ export default [
             to: { name: "bookings" },
             label: "Bookings",
             icon: mdiCalendarEdit,
+        },
+        {
+            label: "City",
+            icon: mdiStateMachine,
+            menu: [
+                {
+                    label: "Cities",
+                    to: { name: "cities" },
+                },
+                {
+                    label: "StoreFront",
+                    to: { name: "storeFront" },
+                },
+            ],
+        },
+        {
+            to: { name: "maps" },
+            label: "Map",
+            icon: mdiStateMachine,
         },
         {
             to: { name: "services" },
@@ -177,6 +197,11 @@ export default [
         {
             to: { name: "customers" },
             label: "Customers",
+            icon: mdiAccountCircle,
+        },
+        {
+            to: { name: "order" },
+            label: "Orders",
             icon: mdiAccountCircle,
         },
         {
