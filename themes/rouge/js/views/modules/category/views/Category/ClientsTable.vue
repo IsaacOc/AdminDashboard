@@ -4,6 +4,11 @@
         <p>This is sample modal</p>
     </modal-box>
 
+    <modal-box v-model="isModalActive" title="Sample modal">
+        <p>Lorem ipsum dolor sit amet <b>adipiscing elit</b></p>
+        <p>This is sample modal</p>
+    </modal-box>
+
     <modal-box
         v-model="isModalDangerActive"
         large-title="Please confirm"
