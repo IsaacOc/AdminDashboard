@@ -1,0 +1,17 @@
+{
+    "name": "modules/admin",
+    "description": "admin section",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Modules\\Map\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "isaa",
+            "email": "isaa@gmail.com"
+        }
+    ],
+    "require": {}
+}

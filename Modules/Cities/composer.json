@@ -1,0 +1,16 @@
+{
+    "name": "modules/cities",
+    "description": "cities",
+    "autoload": {
+        "psr-4": {
+            "Modules\\Cities\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "isaa",
+            "email": "isaa@gmail.com"
+        }
+    ],
+    "require": {}
+}

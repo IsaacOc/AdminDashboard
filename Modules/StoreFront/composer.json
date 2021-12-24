@@ -1,0 +1,15 @@
+{
+    "name": "modules/storefront",
+    "autoload": {
+        "psr-4": {
+            "Modules\\Storefront\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "isaa",
+            "email": "isaa@gmail.com"
+        }
+    ],
+    "require": {}
+}
