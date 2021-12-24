@@ -7,12 +7,14 @@
     "require": {
         "php": "^7.3|^8.0",
         "fruitcake/laravel-cors": "^2.0",
+        "grimzy/laravel-mysql-spatial": "4.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.65",
         "laravel/passport": "^10.2",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "qirolab/laravel-themer": "^1.5"
+        "qirolab/laravel-themer": "^1.5",
+        "visualappeal/php-auto-update": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -27,7 +29,11 @@
             "App\\": "app/",
             "Modules\\": "app/Modules/",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "Database\\Seeders\\": "database/seeders/",
+            "Modules\\Map\\": "Modules/Map/src",
+            "Modules\\Cities\\": "Modules/Cities/src",
+            "Modules\\StoreFront\\": "Modules/StoreFront/src",
+            "Modules\\Customer\\": "Modules/Customer/src"
         }
     },
     "autoload-dev": {
@@ -52,6 +58,16 @@
     },
     "extra": {
         "laravel": {
+            "provider":[
+                "Modules\\Map\\MapServiceProvider",
+                "Modules\\Cities\\CitiesServiceProvider",
+                "Modules\\StoreFront\\StoreFrontServiceProvider"
+            ],
+            "aliases":{
+                "Map": "Modules\\Map\\MapServiceProvider",
+                "Cities": "Modules\\Cities\\CitiesServiceProvider",
+                "StoreFront": "Modules\\StoreFront\\StoreFrontServiceProvider"
+            },
             "dont-discover": []
         }
     },
