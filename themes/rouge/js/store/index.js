@@ -3,6 +3,8 @@ import axios from 'axios'
 import auth from './Auth'
 import category from './Category'
 import subCategory from './SubCategory'
+import cities from './Cities'
+import customer from './Customer'
 
 export default createStore({
   state: {
@@ -122,5 +124,7 @@ export default createStore({
     auth,
     category,
     subCategory,
+    cities,
+    customer,
   }
 })
